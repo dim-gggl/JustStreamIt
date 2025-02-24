@@ -71,11 +71,13 @@ section h2 {
     gap: 1rem;
     align-items: flex-start;
     justify-content: left;
-    margin-left: 0;
+    margin: 0;
 }
 
 .best-movie-container {
 	display: flex;
+    flex-wrap: wrap;
+    
 	align-items: center;
 	gap: 15px;
 	border: 3.5px solid hsla(0, 0%, 0%, 0.673);
@@ -233,4 +235,9 @@ button:hover {
     .category-list {
         padding: 15px;
     }
+}
+
+span {
+    color: #5C6D74;
+    font-style: bold;
 }
