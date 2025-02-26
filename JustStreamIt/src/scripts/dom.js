@@ -1,3 +1,5 @@
+import { fillModalContent, openModal } from "./modal.js"; 
+
 export function setBestMovie(movie) {
   const bestMovieImage = document.getElementById("best-movie-img");
   const bestMovieTitle = document.getElementById("best-movie-title");
@@ -33,6 +35,11 @@ export function renderMovieBox(movie, dataId) {
   detailsBtn.classList.add("open-modal");
   detailsBtn.setAttribute("data-id", dataId);
   detailsBtn.innerText = "Détails";
+  
+  detailsBtn.addEventListener("click", () => {
+          fillModalContent(movie);
+          openModal();
+        });
 
   overlay.appendChild(titleP);
   overlay.appendChild(detailsBtn);
@@ -78,29 +85,3 @@ export function setCategoryMovies(movies, categoryName) {
     setCategoryMovies(movies, categoryName);
   }
 }
-
-/*
-export function setCategoryMovies(movies, categoryName) {
-  try {
-    let containerElement = document.getElementById(categoryName.toLowerCase());
-    if (!containerElement) {
-      containerElement = document.createElement("section");
-      containerElement.id = categoryName.toLowerCase();
-      containerElement.className = "catalogue";
-      document.body.appendChild(containerElement);
-    }
-    clearContainer(containerElement);
-    if (movies && movies.length) {
-      movies.forEach(movie => {
-        if (movie) {
-          const movieBox = renderMovieBox(movie, movie.id);
-          containerElement.appendChild(movieBox);
-        }
-      });
-    }
-  } catch (error) {
-    console.error(error);
-    alert(error);
-  }
-}
-*/

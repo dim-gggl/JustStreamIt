@@ -5,11 +5,11 @@ import {
 } from './api.js';
 import { createMovieModel } from './models.js';
 import { setBestMovie, setCategoryMovies } from './dom.js';
-import { initModal, openModal, fillModalMainContent } from './modal.js';
+import { initModal, openModal, fillModalContent } from './modal.js';
 import { animationMoviesUrl, biographyMoviesUrl } from './config.js';
 
-document.addEventListener("DOMContentLoaded", async () => {
 
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     const bestMoviesData = await getBestMoviesList();
     const bestMovieRef = bestMoviesData.results[0];
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const bestMovieButton = document.querySelector("#best-movie .open-modal");
     if (bestMovieButton) {
       bestMovieButton.addEventListener("click", () => {
-        fillModalMainContent(bestMovie);
+        fillModalContent(bestMovie);
         openModal();
       });
     }
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     alert("Erreur lors du chargement du meilleur film.");
   }
 
-   // Loading films by category
   try {
     const animationMovies = await extractSixMoviesToDisplay(animationMoviesUrl);
     const biographyMovies = await extractSixMoviesToDisplay(biographyMoviesUrl);
@@ -44,3 +43,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   initModal();
 });
+
+window.onload = function() {
+  const loader = document.getElementById("loader-overlay");
+  loader.style.opacity = '0';
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 3000);
+};

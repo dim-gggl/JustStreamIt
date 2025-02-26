@@ -4,17 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JustStreamIt</title>
-  <link rel="stylesheet" href="http://localhost:3000/JustStreamIt/src/style.css">
-  <script type="module" defer src="http://localhost:3000/JustStreamIt/src/scripts/script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" defer src="scripts/script.js"></script>
 </head>
 <body>
+
+  <div id="loader-overlay">
+    <div class="logo-container">
+      <img src="static/loading_spinner_logo.gif" alt="Logo du site" class="logo">
+    </div>
+  </div>
+
   <header>
-    <img src="http://localhost:3000/JustStreamIt/src/static/logo-JustStreamIt.png" alt="Logo de JustStreamIt">
+    <img src="static/logo-JustStreamIt.png" alt="Logo de JustStreamIt">
     <h1>Vidéos à la demande</h1>
   </header>
         
   <main>
-    <!-- Meilleur Film -->
+
     <section id="best-movie">
       <h2>Meilleur Film</h2>
       <div class="best-movie-container">
@@ -205,6 +212,9 @@
               Lo rem & Ip Sum
             </p>
           </div>
+          <div id="modal-poster">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du film">
+          </div>
           <div id="synopsis">
             <p id="long-description">
               Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod arcu at leo fringilla mattis suspendisse tempor molestie primis. 
@@ -214,9 +224,7 @@
             </p>
           </div>
         </article>
-        <div id="modal-poster">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du film">
-        </div>
+        
         <p id="casting">
           <em>Avec : </em><br>
           Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, Anim Id Est Laborum.
@@ -224,9 +232,13 @@
         <button id="close-modal">Fermer</button>
       </div>
     </div>
+
   </main>
+
   <footer>
     <p>© 2025 JustStreamIt</p>
   </footer>
+
 </body>
+
 </html>

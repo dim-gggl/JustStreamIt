@@ -20,7 +20,6 @@ export function initModal() {
     closeButton.addEventListener("click", closeModal);
   }
 
-  // Ferme la modale si l'utilisateur clique en dehors du contenu
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
       closeModal();
@@ -28,7 +27,7 @@ export function initModal() {
   });
 }
 
-export function fillModalMainContent(movie) {
+export function fillModalContent(movie) {
   const modalTitle = document.getElementById("modal-title");
   const modalPosterImg = document.querySelector("#modal-poster img");
   const modalDescription = document.getElementById("long-description");
