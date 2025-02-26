@@ -1,233 +1,232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustStreamIt</title>
-    <link rel="stylesheet" href="http://localhost:3000/JustStreamIt/src/style.css">
-    <script type="module" defer src="http://localhost:3000/JustStreamIt/src/scripts/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustStreamIt</title>
+  <link rel="stylesheet" href="http://localhost:3000/JustStreamIt/src/style.css">
+  <script type="module" defer src="http://localhost:3000/JustStreamIt/src/scripts/script.js"></script>
 </head>
-    <body>
-        <header>
-            <img src="http://localhost:3000/JustStreamIt/src/static/logo-JustStreamIt.png" alt="Logo de JustStreamIt">
-            <h1>Vidéos à la demande</h1>
-        </header>
+<body>
+  <header>
+    <img src="http://localhost:3000/JustStreamIt/src/static/logo-JustStreamIt.png" alt="Logo de JustStreamIt">
+    <h1>Vidéos à la demande</h1>
+  </header>
         
-        <main>
-            <section id="best-movie">
-                <h2>Meilleur Film</h2>
-                <div class="best-movie-container">
-                    <img id="best-movie-img" src="http://localhost:3000/JustStreamIt/src/static/placeholder_best.jpg" alt="Affiche du meilleur film">
-                    <article>
-                        <h3 id="best-movie-title">Lorem Ipsum</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum auctor arcu.</p>
-                        <button class="open-modal">Détails</button>
-                    </article>
-                </div>
-            </section>
+  <main>
+    <!-- Meilleur Film -->
+    <section id="best-movie">
+      <h2>Meilleur Film</h2>
+      <div class="best-movie-container">
+        <img id="best-movie-img" src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du meilleur film">
+        <article>
+          <h3 id="best-movie-title">Lorem Ipsum</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum auctor arcu.</p>
+          <button class="open-modal" data-id="best-movie">Détails</button>
+        </article>
+      </div>
+    </section>
 
-            <section id="documentary" class="=catalogue">
-                <h2>Documentaire</h2>
-                <div class="movie-container">
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu_2.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu_2.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_docu_2.jpg" alt="Affiche documentaire">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <section id="biography" class="catalogue">
+        <h2>Biographie</h2>
+      <div class="movie-container">
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-1">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-2">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-3">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-4">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-5">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="docu-6">Détails</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <section id="documentary" class="=catalogue">
-                <h2>Animation</h2>
-                <div class="movie-container">
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_1.jpg" alt="Affiche animation">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_2.jpg" alt="Affiche animation">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_1.jpg" alt="Affiche animation">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_2.jpg" alt="Affiche animation">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                
-                    <div class="movie-box">
-                        <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_1.jpg" alt="Affiche animation">
-                        <div class="overlay">
-                            <p>Titre du film</p>
-                            <button>Détails</button>
-                        </div>
-                    </div>
-                <div class="movie-box">
-                    <img src="http://localhost:3000/JustStreamIt/src/static/placeholder_animation_2.jpg" alt="Affiche animation">
-                    <div class="overlay">
-                        <p>Titre du film</p>
-                        <button>Détails</button>
-                    </div>
-                </div>
-                </div>
-                
-            </section>
-            
-            <section class="select-category catalogue">
-                <h2>Autres</h2>
-                <div class="dropdown">
-                    <button class="category-list">Catégories</button>
-                    <div class="dropdown-child">
-                        <a href="link-to-category-1">Action</a>
-                        <a href="link-to-category-2">Adult</a>
-                        <a href="link-to-category-3">Adventure</a>
-                        <a href="link-to-category-4">Animation</a>
-                        <a href="link-to-category-5">Biography</a>
-                        <a href="link-to-category-6">Comedy</a>
-                        <a href="link-to-category-7">Crime</a>
-                        <a href="link-to-category-8">Documentary</a>
-                        <a href="link-to-category-9">Drama</a>
-                        <a href="link-to-category-10">Family</a>
-                        <a href="link-to-category-11">Fantasy</a>
-                        <a href="link-to-category-12">Film-Noir</a>
-                        <a href="link-to-category-13">History</a>
-                        <a href="link-to-category-14">Horror</a>
-                        <a href="link-to-category-15">Music</a>
-                        <a href="link-to-category-16">Musical</a>
-                        <a href="link-to-category-17">Mystery</a>
-                        <a href="link-to-category-18">News</a>
-                        <a href="link-to-category-19">Reality-TV</a>
-                        <a href="link-to-category-20">Romance</a>
-                        <a href="link-to-category-21">Sci-Fi</a>
-                        <a href="link-to-category-22">Sport</a>
-                        <a href="link-to-category-23">Thriller</a>
-                        <a href="link-to-category-24">War</a>
-                        <a href="link-to-category-25">Western</a>
-                    </div>
-                </div>
-            </section>
-            <section class="selected-category catalogue comedy">
-                <h2>Autres</h2>
-                <div class="dropdown">
-                    <button class="category-list">Catégories</button>
-                    <div class="dropdown-child">
-                        <a href="link-to-category-1">Action</a>
-                        <a href="link-to-category-2">Adult</a>
-                        <a href="link-to-category-3">Adventure</a>
-                        <a href="link-to-category-4">Animation</a>
-                        <a href="link-to-category-5">Biography</a>
-                        <a href="link-to-category-6">Comedy</a>
-                        <a href="link-to-category-7">Crime</a>
-                        <a href="link-to-category-8">Documentary</a>
-                        <a href="link-to-category-9">Drama</a>
-                        <a href="link-to-category-10">Family</a>
-                        <a href="link-to-category-11">Fantasy</a>
-                        <a href="link-to-category-12">Film-Noir</a>
-                        <a href="link-to-category-13">History</a>
-                        <a href="link-to-category-14">Horror</a>
-                        <a href="link-to-category-15">Music</a>
-                        <a href="link-to-category-16">Musical</a>
-                        <a href="link-to-category-17">Mystery</a>
-                        <a href="link-to-category-18">News</a>
-                        <a href="link-to-category-19">Reality-TV</a>
-                        <a href="link-to-category-20">Romance</a>
-                        <a href="link-to-category-21">Sci-Fi</a>
-                        <a href="link-to-category-22">Sport</a>
-                        <a href="link-to-category-23">Thriller</a>
-                        <a href="link-to-category-24">War</a>
-                        <a href="link-to-category-25">Western</a>
-                    </div>
-                </div>
-            </section>
-            <div id="modal" class="modal">
-                <div id="modal-content" class="modal-content">
-                    <article>
-                        <div id="technical-datasheet">
-                            <h3>Lorem Ipsum</h3>
-                            <p class="technical">Year, genre, genre, genre<br>
-                            Age restrictions, duration, country, countries<br>
-                            ImDB Score : Œ/∏</p>
-                            <p id="Directors"><em>Réalisé par :</em><br>
-                            Lo rem & Ip Sum</p>
-                        </div>
-                        <div id="synopsis">
-                            <p id="long-description">Lorem ipsum odor amet, consectetuer adipiscing elit. 
-                                Euismod arcu at leo fringilla mattis suspendisse tempor molestie primis. 
-                                Himenaeos hac maximus fames suscipit bibendum morbi penatibus. Ultrices dictumst 
-                                feugiat euismod dis cubilia facilisi facilisis potenti viverra. Volutpat nascetur 
-                                magnis euismod diam per dignissim. Fusce laoreet tempor montes lectus ornare sit 
-                                vehicula erat. Pretium lacus in proin mi egestas consequat leo. Fusce fusce magna 
-                                varius lobortis penatibus integer, nisl libero libero.</p>
-                        </div>
-                    </div id='modal-poster'>
-                    <img id="modal-poster" src="http://localhost:3000/JustStreamIt/src/static/placeholder_best.jpg" alt="Affiche du film">
-                    </div>
-                    <p id="casting"><em>Avec : </em></br>
-                    Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, 
-                    Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, 
-                    Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, 
-                    In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, 
-                    Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, Anim Id Est Laborum.</p>
-                    <button id="close-modal">Fermer</button>
-                    </article>
+    <section id="animation" class="catalogue">
+        <h2>Animation</h2>
+      <div class="movie-container">
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-1">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-2">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-3">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-4">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-5">Détails</button>
+          </div>
+        </div>
+        <div class="movie-box">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche animation">
+          <div class="overlay">
+            <p>Titre du film</p>
+            <button class="open-modal" data-id="anim-6">Détails</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                            
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p>© 2025 JustStreamIt</p>
-        </footer>
-    </body>
+    <section class="select-category catalogue">
+        <h2>Autres</h2>
+        <div class="dropdown">
+          <button class="category-list">Catégories</button>
+          <div class="dropdown-child">
+            <a href="link-to-category-1">Action</a>
+            <a href="link-to-category-2">Adult</a>
+            <a href="link-to-category-3">Adventure</a>
+            <a href="link-to-category-4">Animation</a>
+            <a href="link-to-category-5">Biography</a>
+            <a href="link-to-category-6">Comedy</a>
+            <a href="link-to-category-7">Crime</a>
+            <a href="link-to-category-8">Documentary</a>
+            <a href="link-to-category-9">Drama</a>
+            <a href="link-to-category-10">Family</a>
+            <a href="link-to-category-11">Fantasy</a>
+            <a href="link-to-category-12">Film-Noir</a>
+            <a href="link-to-category-13">History</a>
+            <a href="link-to-category-14">Horror</a>
+            <a href="link-to-category-15">Music</a>
+            <a href="link-to-category-16">Musical</a>
+            <a href="link-to-category-17">Mystery</a>
+            <a href="link-to-category-18">News</a>
+            <a href="link-to-category-19">Reality-TV</a>
+            <a href="link-to-category-20">Romance</a>
+            <a href="link-to-category-21">Sci-Fi</a>
+            <a href="link-to-category-22">Sport</a>
+            <a href="link-to-category-23">Thriller</a>
+            <a href="link-to-category-24">War</a>
+            <a href="link-to-category-25">Western</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="selected-category catalogue comedy">
+        <h2>Autres</h2>
+        <div class="dropdown">
+          <button class="category-list">Catégories</button>
+          <div class="dropdown-child">
+            <a href="link-to-category-1">Action</a>
+            <a href="link-to-category-2">Adult</a>
+            <a href="link-to-category-3">Adventure</a>
+            <a href="link-to-category-4">Animation</a>
+            <a href="link-to-category-5">Biography</a>
+            <a href="link-to-category-6">Comedy</a>
+            <a href="link-to-category-7">Crime</a>
+            <a href="link-to-category-8">Documentary</a>
+            <a href="link-to-category-9">Drama</a>
+            <a href="link-to-category-10">Family</a>
+            <a href="link-to-category-11">Fantasy</a>
+            <a href="link-to-category-12">Film-Noir</a>
+            <a href="link-to-category-13">History</a>
+            <a href="link-to-category-14">Horror</a>
+            <a href="link-to-category-15">Music</a>
+            <a href="link-to-category-16">Musical</a>
+            <a href="link-to-category-17">Mystery</a>
+            <a href="link-to-category-18">News</a>
+            <a href="link-to-category-19">Reality-TV</a>
+            <a href="link-to-category-20">Romance</a>
+            <a href="link-to-category-21">Sci-Fi</a>
+            <a href="link-to-category-22">Sport</a>
+            <a href="link-to-category-23">Thriller</a>
+            <a href="link-to-category-24">War</a>
+            <a href="link-to-category-25">Western</a>
+          </div>
+        </div>
+      </section>
+
+    <div id="modal" class="modal">
+      <div id="modal-content" class="modal-content">
+        <article>
+          <div id="technical-datasheet">
+            <h3 id="modal-title">Lorem Ipsum</h3>
+            <p class="technical">
+              Year, genre, genre, genre<br>
+              Age restrictions, duration, country, countries<br>
+              ImDB Score : Œ/∏
+            </p>
+            <p id="directors"><em>Réalisé par :</em><br>
+              Lo rem & Ip Sum
+            </p>
+          </div>
+          <div id="synopsis">
+            <p id="long-description">
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod arcu at leo fringilla mattis suspendisse tempor molestie primis. 
+              Himenaeos hac maximus fames suscipit bibendum morbi penatibus. Ultrices dictumst feugiat euismod dis cubilia facilisi facilisis potenti viverra. 
+              Volutpat nascetur magnis euismod diam per dignissim. Fusce laoreet tempor montes lectus ornare sit vehicula erat. 
+              Pretium lacus in proin mi egestas consequat leo. Fusce fusce magna varius lobortis penatibus integer, nisl libero libero.
+            </p>
+          </div>
+        </article>
+        <div id="modal-poster">
+          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du film">
+        </div>
+        <p id="casting">
+          <em>Avec : </em><br>
+          Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, Anim Id Est Laborum.
+        </p>
+        <button id="close-modal">Fermer</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 JustStreamIt</p>
+  </footer>
+</body>
 </html>
