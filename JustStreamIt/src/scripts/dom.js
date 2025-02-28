@@ -1,5 +1,6 @@
 import { fillModalContent, openModal } from "./modal.js"; 
 
+
 export function setBestMovie(movie) {
   const bestMovieImage = document.getElementById("best-movie-img");
   const bestMovieTitle = document.getElementById("best-movie-title");
@@ -35,7 +36,7 @@ export function renderMovieBox(movie, dataId) {
   detailsBtn.classList.add("open-modal");
   detailsBtn.setAttribute("data-id", dataId);
   detailsBtn.innerText = "Détails";
-  
+
   detailsBtn.addEventListener("click", () => {
           fillModalContent(movie);
           openModal();
@@ -66,13 +67,14 @@ export function createGenreSection(categoryName) {
 
 export function setCategoryMovies(movies, categoryName) {
   try {
-    let containerElement = document.querySelector(`#${categoryName.toLowerCase()} .movie-container`);
+    let categorySection = document.getElementById(`${categoryName.toLowerCase()}`)
+    let containerElement = document.querySelector(`#${categorySection.id} .movie-container`);
     if (!containerElement) {
       containerElement = document.createElement("div")
       containerElement.className = "movie-container";
     }
     clearContainer(containerElement);
-    if (movies && movies.length) {
+    if (movies) {
       movies.forEach(movie => {
         if (movie) {
           const movieBox = renderMovieBox(movie, movie.id);
@@ -81,7 +83,21 @@ export function setCategoryMovies(movies, categoryName) {
       });
     }
   } catch {
-    containerElementParent = createGenreSection(categoryName);
+    categorySection = createGenreSection(categoryName);
     setCategoryMovies(movies, categoryName);
   }
+}
+
+export function setCategoryDropdownButtons(genres) {
+  const dropdownContainers = document.querySelectorAll(".selected-category .dropdown-child");
+  dropdownContainers.forEach(dropdown => {
+    clearContainer(dropdown);
+    genres.forEach(genre => {
+      const option = document.createElement("a");
+      option.href = "#";
+      option.textContent = genre.name;
+      option.setAttribute("data-genre", genre.name);
+      dropdown.appendChild(option);
+    });
+  });
 }

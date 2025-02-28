@@ -4,18 +4,18 @@
     --white: #F7F7F7;
     --black: #000000;
     --font-family: "Barlow Condensed", "Helvetica Neue", sans-serif;
-    --shadow-color: 0deg 0% 45%;
+    --shadow-color: 0deg 0% 0%;
     --shadow-box:
-      0.1px -0.1px 0.2px hsl(var(--shadow-color) / 0.46),
-      0.6px -0.4px 0.8px -0.3px hsl(var(--shadow-color) / 0.45),
-      1.1px -0.7px 1.4px -0.6px hsl(var(--shadow-color) / 0.44),
-      1.7px -1px 2.1px -0.9px hsl(var(--shadow-color) / 0.43),
-      2.5px -1.5px 3.1px -1.2px hsl(var(--shadow-color) / 0.42),
-      3.7px -2.3px 4.7px -1.6px hsl(var(--shadow-color) / 0.41),
-      5.4px -3.3px 6.8px -1.9px hsl(var(--shadow-color) / 0.4),
-      7.6px -4.7px 9.7px -2.2px hsl(var(--shadow-color) / 0.39),
-      10.6px -6.5px 13.4px -2.5px hsl(var(--shadow-color) / 0.38),
-      14.3px -8.8px 18.1px -2.8px hsl(var(--shadow-color) / 0.37);
+        4.8px 4.8px 1.9px -9px rgba(0, 0, 0, 0.65),
+        9.5px 9.3px 3.6px -9px rgba(0, 0, 0, 0.506),
+        14px 13.8px 5px -9px rgba(0, 0, 0, 0.427),
+        18.6px 18.2px 6px -9px rgba(0, 0, 0, 0.384),
+        23.4px 22.9px 6.7px -9px rgba(0, 0, 0, 0.355),
+        28.9px 28.3px 7.3px -9px rgba(0, 0, 0, 0.325),
+        35.7px 34.9px 8.3px -9px rgba(0, 0, 0, 0.286),
+        45.3px 44.4px 13.6px -9px rgba(0, 0, 0, 0.235),
+        61.5px 60.3px 32.4px -9px rgba(0, 0, 0, 0.17),
+        100px 98px 58px -9px rgba(0, 0, 0, 0.091);
   }
 
   body {
@@ -33,9 +33,9 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    background: #536972;
-    transition-delay: 1s;
-    transition: opacity 5s ease; 
+    background: #556a76;
+    transition-delay: 5s;
+    transition: opacity 2s ease; 
   }
 
   .logo-container {
@@ -47,12 +47,12 @@
     display: block;
     width: 200px;  
     height: auto;
-    transition-delay: 1.8s;
+    transition-delay: 2.8s;
     transition: opacity 4.2s ease;
   }
 
   h1, h2, h3 {
-    font-family: 'Taviraj';
+    font-family: Georgia, 'Times New Roman', 'Times', serif;
     font-weight: 600;
   }
   
@@ -78,7 +78,9 @@
   /* Header Styles */
   header {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 60px;
     padding: 1rem;
     background: var(--primary-bg);
@@ -88,7 +90,7 @@
   
   header img {
     margin: 1.3rem;
-    max-width: 127px;
+    max-width: 200px;
   }
   
   header h1 {
@@ -248,11 +250,14 @@
   .category-list {
     background-color: #34495e;
     color: var(--white);
+    font-size: 32px;
     padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
+    text-justify: center;
+    width: 200px;
   }
   
   .dropdown-child {
@@ -262,7 +267,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     min-width: 160px;
     z-index: 1;
-    transition: display 0.3s ease;
+    transition: display 0.4s ease-in-out;
   }
   
   .dropdown-child a {
@@ -270,10 +275,21 @@
     padding: 10px;
     text-decoration: none;
     color: var(--black);
+    font-size: 30px;
+    text-align: center;
+    text-justify: center;
+    width: 200px;
+  }
+
+  .dropdown-child a:hover {
+    background-color: #5d6975;
+    color: var(--white);
   }
   
   .dropdown:hover .dropdown-child {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
   }
   
   /* Modal Styles */
@@ -290,28 +306,38 @@
     background-color: rgba(0,0,0,0.6);
   }
   
-  .modal-content {
+  #modal-content {
     background: var(--white);
     margin: auto;
-    padding: 30px;
+    padding: 40px;
     border: 3.5px solid var(--black);
-    max-height:min-content;
-    width: 80%;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    box-shadow: var(--shadow-box);
+    background: var(--white);
+    max-height: 90vh; 
+    max-width: 120vh;
+    overflow-y: auto;
   }
 
-  .modal-content h3 {
+  .modal-header {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    max-height: fit-content;
+  }
+
+  #modal-title {
     text-align: left;
-    font-size: 48px;
+    font-size: 30px;
     font-weight: 600;
     letter-spacing: -1;
 }
 
-  #technical-datasheet {
-    z-index: 2;
+  .technical-datasheet {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -324,36 +350,41 @@
     letter-spacing: -1;
   }
 
-  #directors {
-    margin-block: 1.5rem;
-  }
-
   #directors em {
-    font-style: normal;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   #directors {
+    margin-block: 1rem;
+    font-family: var(--font-family);
     font-size: 18px;
+    font-weight: 400;
   }
 
   #modal-poster {
-    z-index: 3;
-    display: inline-flex;
+    margin: 0 0 auto auto;
+    z-index: 2;
+    align-self: baseline;
     justify-self: right;
-    margin-block: 1rem;
   }
 
   #synopsis {
     margin-block: 1rem;
     font-size: 18px;
     text-align: justify;
+    font-weight: 400;
   }
 
   #casting {
     margin-block: 1rem;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .close-modal {
+    display: flex;
+    justify-content: center;
   }
 
   #close-modal {
@@ -381,6 +412,16 @@
     .movie-box {
       width: calc(50% - 20px);
     }
+
+    #modal-content {
+      width: 100%;
+    }
+
+    #modal-poster {
+      position: sticky;
+      top: 30px; 
+      align-self: end;
+    }
   
     .dropdown-child {
       min-width: 200px;
@@ -389,10 +430,30 @@
   
   /* Mobile */
   @media screen and (max-width: 768px) {
+    * {
+      max-width: 100%;
+    }
+    
+    .headert img {
+      align-self: center;
+    }
+
+    .header h1 {
+      display: none;
+    }
+
     .best-movie-container img {
       width: 100%;
     }
-  
+    .catalogue {
+      width: 100%;
+    }
+
+    .movie-container {
+      display: column;
+      justify-content: center;
+    }
+    
     .movie-box {
       width: 100%; 
       margin: 10px auto;
@@ -401,6 +462,28 @@
     .category-list {
       padding: 15px;
     }
+
+    #modal-content {
+      padding: 20px;
+      display: block;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+      max-height: fit-content;
+      overflow-y: scroll
+    }
+
+    #modal-poster {
+      display: flex;
+      justify-self: center;
+      margin: 1rem auto;
+      flex-grow: initial;
+    }
+
+    .technical-datasheet, #modal-poster #synopsis, #casting {
+      width: 100%;
+    }
+
   }
   
   

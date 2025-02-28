@@ -10,7 +10,7 @@ const genresEndpoint = "genres/";
 export const moviesUrl = apiDomain + moviesEndpoint;
 export const genresUrl = apiDomain + genresEndpoint;
 
-const animEndpoint = "?genre=animation&sort_by=-avg_vote";
+const sciFiEndpoint = "?genre=sci-fi&sort_by=-avg_vote";
 const biographyEndpoint = "?genre=biography&sort_by=-avg_vote";
-export const animationMoviesUrl = moviesUrl + animEndpoint;
+export const sciFiMoviesUrl = moviesUrl + sciFiEndpoint;
 export const biographyMoviesUrl = moviesUrl + biographyEndpoint;

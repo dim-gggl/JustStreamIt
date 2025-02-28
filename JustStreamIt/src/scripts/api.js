@@ -1,4 +1,4 @@
-import { moviesUrl } from "./config.js"; 
+import { moviesUrl, genresUrl } from "./config.js"; 
 import { createMovieModel } from "./models.js"; 
 
 
@@ -32,17 +32,19 @@ export function getNextPage(urlData) {
         console.log("Pagination terminée");
         return null; 
     } catch (error) {
+        console.error(`Problème lors de la pagination: urlData : ${urlData}`)
         return null;
     }
 }
 
 export async function fetchAllPages(baseUrl) { 
-    let nextUrl = baseUrl;
+    let currentPage = baseUrl;
     const allData = [];
-    while (nextUrl) {
-        const urlData = await fetchData(nextUrl); 
-        allData.push(urlData)
-        nextUrl = getNextPage(urlData);
+    let currentPageData = null;
+    while (currentPage) {
+        currentPageData = await fetchData(currentPage); 
+        allData.push(currentPageData)
+        currentPage = getNextPage(currentPageData);
     } 
     return allData;
 }
@@ -73,17 +75,17 @@ function extractMoviesIdsFromData(dataList) {
     return moviesIDs;
 }
 
-async function getMoviesFromIDs(animationMoviesIDs, animationMoviesList = []) {
-    for (const id of animationMoviesIDs) {
+async function getMoviesFromIDs(sciFiMoviesIDs, sciFiMoviesList = []) {
+    for (const id of sciFiMoviesIDs) {
         try {
             const filmDetails = await fetchData(moviesUrl + id);
-            const animationMovie = createMovieModel(filmDetails);
-            animationMoviesList.push(animationMovie);
+            const sciFiMovie = createMovieModel(filmDetails);
+            sciFiMoviesList.push(sciFiMovie);
         } catch (error) {
-            console.log(`Erreur lors du listing des films d'animations : ${error}`);
+            console.log(`Erreur lors du listing des films d'sciFis : ${error}`);
         }
     }
-    return animationMoviesList;
+    return sciFiMoviesList;
 }
 
 export async function extractSixMoviesToDisplay(url) {
@@ -108,7 +110,23 @@ export async function extractSixMoviesToDisplay(url) {
       currentUrl = getNextPage(pageData);
     }
     return movies.slice(0, 6);
-  }
+}
+
+export async function getMoviesByCategory(category) {
+    const categoryUrl = moviesUrl + `?genre=${encodeURIComponent(category.toLowerCase())}&sort_by=-avg_vote`;
+    return await extractSixMoviesToDisplay(categoryUrl);
+}
+
+export async function getAllGenres() {
+    const pagesData = await fetchAllPages(genresUrl);
+    const genres = [];
+    pagesData.forEach(page => {
+      if (page.results && Array.isArray(page.results)) {
+        genres.push(...page.results);
+      }
+    });
+    return genres;
+}
 
 export { extractMoviesIdsFromData, getMoviesFromIDs };
     
