@@ -1,3 +1,8 @@
+  /* Loading fonts from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+    
   /* Global settings */
   :root {
     --dark-bg: #021117;
@@ -5,32 +10,28 @@
     --dark-mint-ref: #e3fff8;
     --flashy-mint: #22ffd1;
     --logo-green: #5CABAC;
-    --light-bg: #e3fff8;
-    --dark-white: var(--light-bg);
-    --light-red: #3d0000;
-    --light-black: var(--dark-bg);
-    --dark-mint-ref: var(--dark-mint-ref);
+    --dark-mint-ref: #e3fff8;
     --font-family: "Roboto Condensed", sans-serif;
     --movie-font: "Dancing Script", serif;
+    --category-font : "Racing Sans One", serif;
     --neon-logo-mint:
         0 0 5px #FFF,
         0 0 10px #FFF,
         0 0 15px #FFF,
-        0 0 20px #5CABAC,
-        0 0 30px #5CABAC,
-        0 0 40px #5CABAC,
-        0 0 55px #5CABAC,
-        0 0 75px #5CABAC;
+        0 0 20px var(--logo-green),
+        0 0 30px var(--logo-green),
+        0 0 40px var(--logo-green),
+        0 0 55px var(--logo-green),
+        0 0 75px var(--logo-green);
     --neon-logo-mint-img:
         drop-shadow(0 0 1px #FFF)
         drop-shadow(0 0 2px #FFF)
         drop-shadow(0 0 4px #FFF)
-        drop-shadow(0 0 5px #5CABAC)
-        drop-shadow(0 0 6px #5CABAC)
-        drop-shadow(0 0 8px #5CABAC)
-        drop-shadow(0 0 9px #5CABAC)
-        drop-shadow(0 0 10px #5CABAC);
-    --shadow-color: 0deg 0% 0%;
+        drop-shadow(0 0 5px var(--logo-green))
+        drop-shadow(0 0 6px var(--logo-green))
+        drop-shadow(0 0 8px var(--logo-green))
+        drop-shadow(0 0 9px var(--logo-green))
+        drop-shadow(0 0 10px var(--logo-green));
     --shadow-box:
         4.8px 4.8px 1.9px -9px rgba(0, 0, 0, 0.65),
         9.5px 9.3px 3.6px -9px rgba(0, 0, 0, 0.506),
@@ -72,6 +73,7 @@
   transition: opacity 6s ease-out; 
 }
 
+/* The container of the logo + the site name */
 .loader-main {
   display: flex;
   flex-direction: column;
@@ -97,34 +99,14 @@
   transform-origin: center;
 }
 
-/* StreamIT Logo/Name */
+/* "Stream IT" site Name */
 .loader-title {
   filter: var(--neon-logo-mint-img);
-  margin: 0 auto;
   z-index: 2;
-  margin: 0 auto auto auto;
+  top: 0;
   max-width: 40vh;
   opacity: 0;
   animation: flashing 8s linear 3 4s;
-}
-
-.loader-titlestyle {
-  font-family: "Dancing Script", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  color: #5CABAC;
-  letter-spacing: 0;
-  font-size: 8em;
-  text-shadow: var(--neon-logo-mint);
-  opacity: 0;
-  animation: flashing 8s linear 3 4s;
-}
-
-.it {
-  font-family: "Rubik Iso", serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 /* The inner layer of the logo */
@@ -146,6 +128,7 @@
 }
 
 /* The logo animations */
+/* Spinning and scaling to imitate a camera lens */
 @keyframes pulse-in {
   0% { transform: scale(1) rotate(0turn); }
   10% { transform: scale(0.9) rotate(0.9turn); }
@@ -255,19 +238,11 @@
   100% {opacity: 0;}
 }
 
-/* "Loading failed" message style */
-.loader-error-message {
-  font-family: var(--font-family);
-  font-size: 1.5rem;
-  color: var(--dark-mint-ref);
-  opacity: 0;
-}
-
 /* Global Styles */
 body {
   width: 100%;
   font-size: 12px;
-  color: var(--dark-white);
+  color: var(--dark-mint-ref);
   background-color: var(--dark-bg);
   padding-bottom: 10vh;
 }
@@ -285,8 +260,6 @@ body {
   font-style: normal;
   color: var(--dark-red);
 }
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* Header Styles */
 header {
@@ -308,19 +281,6 @@ header {
   margin: 0 0 2em auto;
   max-height: 25vh;
   max-width: 100%;
-}
-
-.site-title {
-  letter-spacing: 0;
-  font-family: "Dancing Script", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  color: #5CABAC;
-  text-shadow: var(--neon-logo-mint);
-  animation: flashing 8s ease-in-out infinite;
-  text-align: center;
-  margin: auto auto 2em 0;
 }
 
 .site-title-image {
@@ -350,18 +310,19 @@ h3 {
 }
 
 .section-title {
-  font-family: "Racing Sans One", serif;
+  font-family: var(--category-font);
   font-weight: 400;
   font-style: normal;
   margin-left: 2rem;
 }
 
+/* Best Movie Section */
 #best-movie .section-title {
   margin: 0.3em auto;
   text-align: center;
 }
 
-/* Best Movie Section */
+/* The litteral "section" tag container */
 #best-movie { 
   display: flex;
   flex-direction: column;
@@ -390,7 +351,7 @@ h3 {
         0 0 8px var(--dark-red),
         0 0 10px var(--dark-red),
         0 0 11px var(--dark-red);
-  margin-block: 1em;
+  margin-block: 2rem;
 }
 
 .best-description {
@@ -398,6 +359,7 @@ h3 {
   margin-block: 1em;
 }
 
+/* Smaller container to organize the elements */
 .best-movie-container {
   display: flex;
   flex-direction: row;
@@ -407,6 +369,7 @@ h3 {
   border-radius: 10px;
 }
 
+/* The text part of the section */
 .best-movie-container article {
   margin-left: 3em;
   display: flex;
@@ -436,7 +399,7 @@ h3 {
 button {
   width: 10vh;
   height: 5vh;
-  color: var(--dark-white);
+  color: var(--dark-mint-ref);
   font-weight: bold;
   background: var(--dark-red);
   border-radius: 25px;
@@ -533,10 +496,11 @@ button:hover {
 }
 
 .category-list {
+  font-family: var(--category-font);
   background-color: #052531fe;
   color: #ff3030;
   font-size: 1.3em;
-  padding: 3vh 5vh;
+  padding: 1vh 5vh;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -563,14 +527,14 @@ button:hover {
   flex-direction: row;
   flex-basis: auto;
   max-width: 100%;
-  font-family: var(--font-family);
+  font-family: var(--category-font);
   padding: 2vh;
   text-decoration: none;
   color: var(--dark-bg);
   font-size: 2em;
   text-align: center;
   text-justify: center;
-  background-color: var(--light-bg);
+  background-color: var(--dark-mint-ref);
 }
 
 .dropdown-child a:hover {
@@ -581,7 +545,9 @@ button:hover {
 .dropdown:hover .dropdown-child {
   display: flex;
   flex-direction: auto;
+  flex-wrap: wrap;
   overflow-y: auto;
+  max-width: 100%;
 }
 
 /* Modal Styles */
@@ -622,7 +588,7 @@ button:hover {
 }
 
 #modal-title {
-  font-family: "Dancing Script", serif;
+  font-family: var(--movie-font);
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -649,7 +615,7 @@ button:hover {
 
 #directors em {
   font-size: 2em;
-  font-family: "Racing Sans One", serif;
+  font-family: var(--category-font);
   font-style: normal;
 }
 
@@ -679,7 +645,7 @@ button:hover {
 
 .synopsis-literal-word {
   font-size: 1em;
-  font-family: "Racing Sans One", serif;
+  font-family: var(--category-font);
 }
 
 #casting {
@@ -690,7 +656,7 @@ button:hover {
 
 .casting-literal-word {
   font-size: 2em;
-  font-family: "Racing Sans One", serif;
+  font-family: var(--category-font);
 }
 
 .close-modal {
@@ -709,6 +675,7 @@ button:hover {
 }
 
 /* Responsive Design: Breaking points and media queries */
+
 /* Tablets */
 @media screen and (max-width: 1024px) {
 
@@ -796,7 +763,7 @@ button:hover {
     max-height: 100vh;
   }
 
-  .loader-titlestyle {
+  .loader-title-style {
     font-size: 4em;
   }
 

@@ -14,6 +14,8 @@ Le but est de pouvoir lancer à la fois :
 
 - **Python 3.7+** (avec pip)
 - **Git** (facultatif si vous avez déjà récupéré le dossier)
+- Le repo de l'API test OCMovies disponible ici ---> https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
+> Ce repo et celui de l'API doivent se trouver dans le même dossier racine afin que la commande décrite plus loin soit fonctionnelle.
 - Un terminal (Bash, Zsh, CMD ou Powershell) permettant d’exécuter les commandes
 - (Optionnel) **Virtualenv** ou une autre solution de virtualisation Python
 
