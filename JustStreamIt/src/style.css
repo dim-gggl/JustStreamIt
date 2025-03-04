@@ -293,8 +293,8 @@ header {
 
 /* Section Titles and Section Margin */
 section {
-  margin: 3vh 5vh;
-  padding: 2vh 3vh;
+  margin: 5vh 8vh;
+  padding: 2vh 5vh;
 }
 
 h1 {
@@ -332,7 +332,7 @@ h3 {
   padding: 4em;
   justify-content: space-around;
   margin: 0 10vh;
-  border: 1px solid var(--dark-mint-ref);
+  border: 1px solid #b46dfc;
   border-radius: 13px;
 }
 
@@ -343,14 +343,15 @@ h3 {
   font-style: normal;
   color: var(--dark-red);
   text-shadow:
-        0 0 1px #FFF,
-        0 0 2px #FFF,
-        0 0 4px var(--dark-red),
-        0 0 5px var(--dark-red),
-        0 0 6px var(--dark-red),
-        0 0 8px var(--dark-red),
-        0 0 10px var(--dark-red),
-        0 0 11px var(--dark-red);
+      0 0 1px #FFF,
+      0 0 2px var(--dark-red),
+      0 0 3px var(--dark-red),
+      0 0 4px var(--dark-red),
+      0 0 5px var(--dark-red),
+      0 0 6px var(--dark-red),
+      0 0 7px var(--dark-red),
+      0 0 8px var(--dark-red), 
+      0 0 9px var(--dark-red);
   margin-block: 2rem;
 }
 
@@ -434,7 +435,9 @@ button:hover {
   aspect-ratio: 1 / 1;
   margin-bottom: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-box)
+  box-shadow: var(--shadow-box);
+  border: 1px solid var(var(--flashy-mint));
+  border-radius: 12px;
 }
 
 .movie-box img {
@@ -497,13 +500,14 @@ button:hover {
 
 .category-list {
   font-family: var(--category-font);
-  background-color: #052531fe;
-  color: #ff3030;
-  font-size: 1.3em;
+  background-color: var(--dark-red);
+  color: var(--dark-bg);
+  font-size: 2em;
   padding: 1vh 5vh;
+  margin-left: 7vh;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
   text-align: center;
   text-justify: center;
   width: 25vh;
@@ -512,7 +516,7 @@ button:hover {
 .dropdown-child {
   display: none;
   position: absolute;
-  background-color: #052e3dfe;
+  background-color: #bff6e8;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
   min-width: 50vh;
   z-index: 1;
@@ -530,16 +534,16 @@ button:hover {
   font-family: var(--category-font);
   padding: 2vh;
   text-decoration: none;
-  color: var(--dark-bg);
+  color: #ff3030;
   font-size: 2em;
   text-align: center;
   text-justify: center;
-  background-color: var(--dark-mint-ref);
+  background-color: #bff6e8;
 }
 
 .dropdown-child a:hover {
-  background-color: #5d6975;
-  color: var(--dark-mint-ref);
+  background-color: #7e0000;
+  color: #f3dec6;
 }
 
 .dropdown:hover .dropdown-child {
@@ -592,7 +596,6 @@ button:hover {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  text-align: left;
   font-size: 4em;
   font-weight: 600;
   letter-spacing: -1;
@@ -669,7 +672,7 @@ button:hover {
   justify-self: center;
   justify-content: center;
   text-align: center;
-  color: var(--flashy-mint);
+  color: var(--dark-mint-ref);
   background-color: var(--dark-red);
   font-weight: bold;
 }
@@ -759,6 +762,45 @@ button:hover {
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
+  /* Hide movies 4 to 6 by default */
+  .movie-container .movie-box:nth-child(n+4) {
+    display: none;
+  }
+  
+  /* Hide checkbox (use its state for toggle) */
+  .toggle-checkbox {
+    display: none;
+  }
+  
+  /* Button style (label) */
+  .toggle-label {
+    display: block;
+    margin: 1rem auto;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: var(--dark-red);
+    color: var(--dark-mint-ref);
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    font-family: var(--font-family);
+  }
+  
+  /* When the checkbox is checked, display hidden films */
+  .toggle-checkbox:checked ~ .movie-container .movie-box {
+    display: flex; 
+  }
+  
+  /* Change button text according to checkbox status */
+  .toggle-checkbox:not(:checked) + .toggle-label::after {
+    content: "Voir plus";
+  }
+  
+  .toggle-checkbox:checked + .toggle-label::after {
+    content: "Voir moins";
+  }
+
   .loader-overlay {
     max-height: 100vh;
   }
@@ -767,7 +809,7 @@ button:hover {
     font-size: 4em;
   }
 
-  header{
+  header {
     max-height: fit-content;
     align-items: center;
     justify-content: space-around;
