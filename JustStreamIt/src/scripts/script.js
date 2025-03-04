@@ -30,8 +30,8 @@ function hideLoader() {
       loader.style.opacity = '0';
       setTimeout(() => {
         loader.style.display = "none";
-      }, 3000);
-    }, 1000);
+      }, 10000);
+    }, 6000);
   }
 }
 
@@ -144,6 +144,6 @@ window.onload = function() {
     loader.style.opacity = '0';
     setTimeout(() => {
        loader.style.display = "none";
-    }, 3000);
-  }, 3000); 
+    }, 6000);
+  }, 10000); 
 };

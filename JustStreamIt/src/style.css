@@ -1,9 +1,35 @@
-:root {
-    --primary-bg: rgb(102, 119, 126);
-    --button-bg: #b90019;
-    --white: #F7F7F7;
-    --black: #000000;
-    --font-family: "Barlow Condensed", "Helvetica Neue", sans-serif;
+  /* Global settings */
+  :root {
+    --dark-bg: #021117;
+    --dark-red: #7e0000;
+    --dark-mint-ref: #e3fff8;
+    --flashy-mint: #22ffd1;
+    --logo-green: #5CABAC;
+    --light-bg: #e3fff8;
+    --dark-white: var(--light-bg);
+    --light-red: #3d0000;
+    --light-black: var(--dark-bg);
+    --dark-mint-ref: var(--dark-mint-ref);
+    --font-family: "Roboto Condensed", sans-serif;
+    --movie-font: "Dancing Script", serif;
+    --neon-logo-mint:
+        0 0 5px #FFF,
+        0 0 10px #FFF,
+        0 0 15px #FFF,
+        0 0 20px #5CABAC,
+        0 0 30px #5CABAC,
+        0 0 40px #5CABAC,
+        0 0 55px #5CABAC,
+        0 0 75px #5CABAC;
+    --neon-logo-mint-img:
+        drop-shadow(0 0 1px #FFF)
+        drop-shadow(0 0 2px #FFF)
+        drop-shadow(0 0 4px #FFF)
+        drop-shadow(0 0 5px #5CABAC)
+        drop-shadow(0 0 6px #5CABAC)
+        drop-shadow(0 0 8px #5CABAC)
+        drop-shadow(0 0 9px #5CABAC)
+        drop-shadow(0 0 10px #5CABAC);
     --shadow-color: 0deg 0% 0%;
     --shadow-box:
         4.8px 4.8px 1.9px -9px rgba(0, 0, 0, 0.65),
@@ -18,472 +44,803 @@
         100px 98px 58px -9px rgba(0, 0, 0, 0.091);
   }
 
-  body {
-    font-weight: 300;
-    font-style: normal;
+/* Reboot */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+/* Loading overlay screen styles */
+.loader-overlay {
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  justify-items: center;
+  justify-content: space-around;
+  background-color: var(--dark-bg);
+  transition-delay: 10s;
+  transition: opacity 6s ease-out; 
+}
+
+.loader-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  max-height: 90vh;
+  text-align: center;
+}
+
+.loader-logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+/* The original JustStreamIt Logo divided in 3 layers */ 
+.loader-logo-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+/* StreamIT Logo/Name */
+.loader-title {
+  filter: var(--neon-logo-mint-img);
+  margin: 0 auto;
+  z-index: 2;
+  margin: 0 auto auto auto;
+  max-width: 40vh;
+  opacity: 0;
+  animation: flashing 8s linear 3 4s;
+}
+
+.loader-titlestyle {
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: #5CABAC;
+  letter-spacing: 0;
+  font-size: 8em;
+  text-shadow: var(--neon-logo-mint);
+  opacity: 0;
+  animation: flashing 8s linear 3 4s;
+}
+
+.it {
+  font-family: "Rubik Iso", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* The inner layer of the logo */
+.in {
+  animation: pulse-in 8s ease-in-out 3;
+  opacity: 1;
+}
+
+/* The middle layer of the logo */
+.mid {
+  animation: spin-scale-mid 8s ease-in-out 3;
+  opacity: 1;
+}
+
+/* The outer layer of the logo */
+.out {
+  animation: spin-scale-out 8s ease-in-out 3;
+  opacity: 1;
+}
+
+/* The logo animations */
+@keyframes pulse-in {
+  0% { transform: scale(1) rotate(0turn); }
+  10% { transform: scale(0.9) rotate(0.9turn); }
+  25% {
+      transform: scale(1.1) rotate(-0.3turn);
+      animation-timing-function: ease-out;
+  }
+  50% {
+      transform: scale(0.9) rotate(-1.1turn);
+      animation-timing-function: ease-out;
+  }
+  75% {
+      transform: scale(0.9) rotate(-1.8turn);
+      animation-timing-function: ease-out;
+  }
+  100% {
+      transform: scale(1) rotate(-1turn);
+      animation-timing-function: ease-out;
+  }
+}
+
+@keyframes spin-scale-mid {
+  0% { transform: scale(1) rotate(0turn); }
+  10% {
+      transform: scale(1) rotate(0.7turn);
+      animation-timing-function: ease-out;
+  }
+  25% {
+      transform: scale(1) rotate(-0.2turn);
+      animation-timing-function: ease-out;
+  }
+  50% {
+      transform: scale(0.9) rotate(-0.9turn);
+      animation-timing-function: ease-out;
+  }
+  75% {
+      transform: scale(1) rotate(-1.5turn);
+      animation-timing-function: ease-out;
+  }
+  100% {
+      transform: scale(1) rotate(0turn);
+      animation-timing-function: ease-out;
+  }
+}
+
+@keyframes spin-scale-out {
+  0% { transform: scale(1) rotate(0turn); }
+  10% {
+      transform: scale(1) rotate(-0.3turn);
+      animation-timing-function: ease;
+  }
+  25% {
+      transform: scale(1) rotate(0.4turn);
+      animation-timing-function: ease-out;
+  }
+  50% {
+      transform: scale(1.1) rotate(0.4turn);
+      animation-timing-function: ease;
+  }
+  75% {
+      transform: scale(1.1) rotate(1turn);
+      animation-timing-function: ease-out;
+  }
+  100% {
+      transform: scale(1) rotate(0turn);
+      animation-timing-function: ease;
+  }
+}
+
+/*  Neon light text effects */
+@keyframes flashing {
+  0% {opacity: 0;}
+  9% {opacity: 0.8;}
+  10% {opacity: 0;}
+  11% {opacity: 0.7;}
+  19% {opacity: 0.6;}
+  20% {opacity: 1;}
+  21% {opacity: 0.8;}
+  32% {opacity: 0.7;}
+  33% {opacity: 0;}
+  34% {opacity: 0.8;}
+  39% {opacity: 0.9;}
+  40% {opacity: 0.2;}
+  41% {opacity: 0.9;}
+  50% {opacity: 0.8;}
+  51% {opacity: 0;}
+  52% {opacity: 0.7;}
+  60% {opacity: 0.6;}
+  61% {opacity: 1;}
+  62% {opacity: 0.8;}
+  68% {opacity: 0.7;}
+  74% {opacity: 0.8;}
+  75% {opacity: 0;}
+  76% {opacity: 0.7;}
+  79% {opacity: 0.8;}
+  80% {opacity: 0.6;}
+  81% {opacity: 1;}
+  82% {opacity: 0.8;}
+  83% {opacity: 0.1;}
+  84% {opacity: 0.8;}
+  89% {opacity: 0.7;}
+  92% {opacity: 0.9;}
+  93% {opacity: 0;}
+  94% {opacity: 0.7;}
+  98% {opacity: 0.8;}
+  99% {opacity: 0.3;}
+  100% {opacity: 0;}
+}
+
+/* "Loading failed" message style */
+.loader-error-message {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  color: var(--dark-mint-ref);
+  opacity: 0;
+}
+
+/* Global Styles */
+body {
+  width: 100%;
+  font-size: 12px;
+  color: var(--dark-white);
+  background-color: var(--dark-bg);
+  padding-bottom: 10vh;
+}
+
+.regtext {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.movie-title {
+  font-size: 4em;
+  font-family: var(--movie-font);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--dark-red);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/* Header Styles */
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  align-content: space-around;
+  text-align: center;
+  padding: 2rem auto;
+  background: var(--dark-bg);
+  border-bottom: 1px solid linear-gradient(to right, var(--flashy-mint), var(--dark-bg));
+  max-height: 25vh;
+  width: 100%;;
+}
+
+.header-logo {
+  margin: 0 0 2em auto;
+  max-height: 25vh;
+  max-width: 100%;
+}
+
+.site-title {
+  letter-spacing: 0;
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  color: #5CABAC;
+  text-shadow: var(--neon-logo-mint);
+  animation: flashing 8s ease-in-out infinite;
+  text-align: center;
+  margin: auto auto 2em 0;
+}
+
+.site-title-image {
+  max-height: 25vh;
+  max-width: 25vh;
+  margin: 0 auto 2em 0;
+  filter: var(--neon-logo-mint-img);
+  animation: flashing 8s ease-in-out infinite;
+}
+
+/* Section Titles and Section Margin */
+section {
+  margin: 3vh 5vh;
+  padding: 2vh 3vh;
+}
+
+h1 {
+  font-size: 7em;
+}
+
+h2 {
+  font-size: 5.5em;
+}
+
+h3 {
+  font-size: 4em;
+}
+
+.section-title {
+  font-family: "Racing Sans One", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 2rem;
+}
+
+#best-movie .section-title {
+  margin: 0.3em auto;
+  text-align: center;
+}
+
+/* Best Movie Section */
+#best-movie { 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 60%;
+  max-width: 90%; 
+  padding: 4em;
+  justify-content: space-around;
+  margin: 0 10vh;
+  border: 1px solid var(--dark-mint-ref);
+  border-radius: 13px;
+}
+
+#best-movie-title {
+  font-size: 4em;
+  font-family: var(--movie-font);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--dark-red);
+  text-shadow:
+        0 0 1px #FFF,
+        0 0 2px #FFF,
+        0 0 4px var(--dark-red),
+        0 0 5px var(--dark-red),
+        0 0 6px var(--dark-red),
+        0 0 8px var(--dark-red),
+        0 0 10px var(--dark-red),
+        0 0 11px var(--dark-red);
+  margin-block: 1em;
+}
+
+.best-description {
+  font-size: 2em;
+  margin-block: 1em;
+}
+
+.best-movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.best-movie-container article {
+  margin-left: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.best-movie-poster {
+  padding: 0;
+  height: fit-content;
+  width: auto;
+}
+
+#best-movie-img {
+  display: inline-flex;
+  justify-self: flex-start;
+  min-width: 30vh;
+  max-width: 100%;
+}
+
+.best-movie-container button {
+  margin: auto;
+}
+
+/* Global button styles */
+button {
+  width: 10vh;
+  height: 5vh;
+  color: var(--dark-white);
+  font-weight: bold;
+  background: var(--dark-red);
+  border-radius: 25px;
+  padding: 2px 4px;
+  margin: 2em auto;
+}
+
+button:hover {
+  cursor: pointer;
+  transition-duration: 0.3s;
+  box-shadow: inset 5px 5px 14px -10px var(--black),
+              inset 6px 9px 34px -29px var(--black);
+  transform: perspective(2px) translateZ(0);
+}
+
+/* Catalogue Sections: sections displaying several movies to select */
+.catalogue {
+  margin: 0;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+}
+
+.movie-box {
+  position: relative;
+  width: calc(33.33% - 20px);
+  aspect-ratio: 1 / 1;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-box)
+}
+
+.movie-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay Styles */
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--dark-mint-ref);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-box:hover .overlay {
+  opacity: 1;
+}
+
+.overlay button {
+  background: var(--dark-red);
+  color: var(--dark-mint-ref);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.overlay button:hover {
+  background: var(--dark-red);
+  color: var(--dark-mint-ref);
+}
+
+.overlay:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--dark-mint-ref);
+}
+
+/* Dropdown for Categories */
+.dropdown {
+  padding: 0;
+  width: fit-content;
+  max-width: 30vh;
+}
+
+.category-list {
+  background-color: #052531fe;
+  color: #ff3030;
+  font-size: 1.3em;
+  padding: 3vh 5vh;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  text-justify: center;
+  width: 25vh;
+}
+
+.dropdown-child {
+  display: none;
+  position: absolute;
+  background-color: #052e3dfe;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 50vh;
+  z-index: 1;
+  margin-bottom: 10vh;
+  overflow-y: scroll;
+  transition: display 0.5s ease-in-out;
+}
+
+.dropdown-child a {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-basis: auto;
+  max-width: 100%;
+  font-family: var(--font-family);
+  padding: 2vh;
+  text-decoration: none;
+  color: var(--dark-bg);
+  font-size: 2em;
+  text-align: center;
+  text-justify: center;
+  background-color: var(--light-bg);
+}
+
+.dropdown-child a:hover {
+  background-color: #5d6975;
+  color: var(--dark-mint-ref);
+}
+
+.dropdown:hover .dropdown-child {
+  display: flex;
+  flex-direction: auto;
+  overflow-y: auto;
+}
+
+/* Modal Styles */
+#modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  margin: 0;
+  padding: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+#modal-content {
+  background: var(--dark-bg);
+  color: var(--dark-mint-ref);
+  margin: auto;
+  padding: 3em;
+  border:1.5px solid #7d56ff;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-box);
+  max-height: 100%; 
+  overflow-x: auto;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  max-height: fit-content;
+}
+
+#modal-title {
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: left;
+  font-size: 4em;
+  font-weight: 600;
+  letter-spacing: -1;
+  color: #ff3030;
+}
+
+.technical-datasheet {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.technical {
+  font-family: var(--font-family);
+  text-align: left;
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+#directors em {
+  font-size: 2em;
+  font-family: "Racing Sans One", serif;
+  font-style: normal;
+}
+
+#directors {
+  margin-block: 1rem;
+  font-family: var(--font-family);
+  font-size: 2.5em;
+  font-weight: 400;
+}
+
+#modal-poster {
+  margin: 0 0 auto auto;
+  z-index: 2;
+  align-self: baseline;
+  justify-self: right;
+  padding: 0%;
+  max-width: 100%;
+  min-width: 30vh;
+}
+
+#synopsis {
+  margin-block: 1em;
+  font-size: 2.5em;
+  text-align: justify;
+  font-weight: 400;
+}
+
+.synopsis-literal-word {
+  font-size: 1em;
+  font-family: "Racing Sans One", serif;
+}
+
+#casting {
+  margin-block: 1em;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.casting-literal-word {
+  font-size: 2em;
+  font-family: "Racing Sans One", serif;
+}
+
+.close-modal {
+  display: flex;
+  justify-content: center;
+}
+
+#close-modal {
+  margin: 0 auto;
+  justify-self: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--flashy-mint);
+  background-color: var(--dark-red);
+  font-weight: bold;
+}
+
+/* Responsive Design: Breaking points and media queries */
+/* Tablets */
+@media screen and (max-width: 1024px) {
+
+  h1 {
+    font-size: 6em;
   }
 
-  #loader-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    background: #556a76;
-    transition-delay: 5s;
-    transition: opacity 2s ease; 
+  h2 {
+    font-size: 5em;
   }
 
-  .logo-container {
-    position: relative;
-    display: inline-block;
+  h3 {
+    font-size: 4em;
   }
 
-  .logo {
-    display: block;
-    width: 200px;  
-    height: auto;
-    transition-delay: 2.8s;
-    transition: opacity 4.2s ease;
-  }
-
-  h1, h2, h3 {
-    font-family: Georgia, 'Times New Roman', 'Times', serif;
-    font-weight: 600;
-  }
-  
-  /* Global Styles */
-  * {
+  section {
+    padding:0;
     margin: 0;
-    padding: 0;
-    font-family: var(--font-family);
-    font-weight: 200;
-    font-size: 16px;
-    letter-spacing: 0%;
-    font-style: normal;
   }
-  
-  body { 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--white);
-    padding-inline: 60px;
+
+  .section-title, 
+  .modal-title, 
+  .technical-datasheet,
+  .synopsis-literal-word,
+  .casting-literal-word {
+    text-align: center;
   }
-  
-  /* Header Styles */
-  header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 60px;
-    padding: 1rem;
-    background: var(--primary-bg);
-    border: 1px solid var(--black);
-    box-shadow: var(--shadow-box)
+
+  #best-movie {
+    max-width: 100%;
   }
-  
-  header img {
-    margin: 1.3rem;
-    max-width: 200px;
-  }
-  
-  header h1 {
-    display: flex;
-    text-align: left;
-    font-size: 40px;
-    letter-spacing: 0%;
-    color: var(--white);
-    margin-left: 1.3rem;
-  }
-  
-  /* Section Titles */
-  section h2 {
-    text-align: left;
-    margin: 2rem 0;
-    font-size: 42px;
-    text-shadow: var(--shadow-box);
-  }
-  
-  /* Best Movie Section */
-  #best-movie-title {
-    text-align: left;
-    font-weight: 600;
-    font-size: 48px;
-    letter-spacing: 0%;
-    color: var(--black);
-  }
-  
-  #best-movie { 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
-    width: 100%;
-    padding: 1rem 0;
-    margin: auto 0;
-  }
-  
-  .best-movie-container article {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: left;
-    margin: 0;
-  }
-  
-  .best-movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 15px;
-    border: 3.5px solid rgba(0, 0, 0, 0.67);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-box)
-  }
-  
+
   #best-movie-img {
-    display: inline-flex;
-    justify-self: flex-start;
-  }
-
-  button {
-    color: var(--white);
-    background: var(--button-bg);
-    border-radius: 25px;
-    padding: 2px 4px;
-
-  }
-  
-  .best-movie-container button {
-    width: 166px;
-    height: 68px;
-    margin-top: auto;   
-    align-self: flex-end;  
-  }
-  
-  button:hover {
-    cursor: pointer;
-    transition-duration: 0.3s;
-    box-shadow: inset 5px 5px 14px -10px var(--black), 
-                inset 6px 9px 34px -29px var(--black);
-    transform: perspective(2px) translateZ(0);
-  }
-  
-  .catalogue {
-    margin: 0;  
-  }
-  
-  .movie-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: space-between;
-    
+    width: 100%;
   }
   
   .movie-box {
-    position: relative; 
-    width: calc(33.33% - 20px);
-    margin-bottom: 20px;
-    overflow: hidden; 
-    box-shadow: var(--shadow-box)
-  }
-  
-  .movie-box img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Overlay Styles */
-  .overlay {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); 
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
+      width: calc(50% - 20px);
   }
 
-  .movie-box:hover .overlay {
-    opacity: 1;
+  #modal {
+    padding: 0;
   }
 
-  .overlay button {
-    background: var(--button-bg);
-    color: var(--white);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease;
-  }
-  
-  .overlay button:hover {
-    background: var(--button-bg);
-    color: var(--white);
-  }
-  
-  .overlay:hover {
-    background: rgba(0, 0, 0, 0.7);
-    color: var(--white);
-  }
-  
-  /* Dropdown for Categories */
-  .category-list {
-    background-color: #34495e;
-    color: var(--white);
-    font-size: 32px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    text-justify: center;
-    width: 200px;
-  }
-  
-  .dropdown-child {
-    display: none;
-    position: absolute;
-    background-color: var(--white);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    min-width: 160px;
-    z-index: 1;
-    transition: display 0.4s ease-in-out;
-  }
-  
-  .dropdown-child a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: var(--black);
-    font-size: 30px;
-    text-align: center;
-    text-justify: center;
-    width: 200px;
-  }
-
-  .dropdown-child a:hover {
-    background-color: #5d6975;
-    color: var(--white);
-  }
-  
-  .dropdown:hover .dropdown-child {
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6);
-  }
-  
   #modal-content {
-    background: var(--white);
-    margin: auto;
-    padding: 40px;
-    border: 3.5px solid var(--black);
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
     flex-wrap: wrap;
-    box-shadow: var(--shadow-box);
-    background: var(--white);
-    max-height: 90vh; 
-    max-width: 120vh;
+    margin: 0 0 auto 0;
+    width: 100%;
     overflow-y: auto;
   }
 
   .modal-header {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    max-height: fit-content;
-  }
-
-  #modal-title {
-    text-align: left;
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: -1;
-}
-
-  .technical-datasheet {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    justify-content: space-around;
   }
 
   .technical {
-    text-align: left;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: -1;
-  }
-
-  #directors em {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 1.3em;
+    text-align: center;
   }
 
   #directors {
-    margin-block: 1rem;
-    font-family: var(--font-family);
-    font-size: 18px;
-    font-weight: 400;
+    text-align: center;
+    font-size: 2em;
   }
 
   #modal-poster {
-    margin: 0 0 auto auto;
-    z-index: 2;
-    align-self: baseline;
-    justify-self: right;
+    margin: 0;
+    width: 100%;
+    height: auto;
   }
 
-  #synopsis {
-    margin-block: 1rem;
-    font-size: 18px;
-    text-align: justify;
-    font-weight: 400;
+  #modal-poster img {
+    width: 100%;
   }
 
-  #casting {
-    margin-block: 1rem;
-    font-size: 14px;
-    font-weight: 400;
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+  .loader-overlay {
+    max-height: 100vh;
   }
 
-  .close-modal {
-    display: flex;
-    justify-content: center;
+  .loader-titlestyle {
+    font-size: 4em;
   }
 
-  #close-modal {
-    margin: 0 auto;
-    justify-self: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    font-weight: bold;
-    width: 166px;
-    height: 68px;
+  header{
+    max-height: fit-content;
+    align-items: center;
+    justify-content: space-around;
   }
-  
-  /* Tablet */
-  @media screen and (max-width: 1024px) {
-    .best-movie-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .best-movie-container img {
-      width: 100%;
-    }
-  
-    .movie-box {
-      width: calc(50% - 20px);
-    }
 
-    #modal-content {
-      width: 100%;
-    }
-
-    #modal-poster {
-      position: sticky;
-      top: 30px; 
-      align-self: end;
-    }
-  
-    .dropdown-child {
-      min-width: 200px;
-    }
+  .header-logo {
+    height: 100%;
+    width: auto;
+    margin: auto;
   }
-  
-  /* Mobile */
-  @media screen and (max-width: 768px) {
-    * {
-      max-width: 100%;
-    }
-    
-    .headert img {
-      align-self: center;
-    }
 
-    .header h1 {
-      display: none;
-    }
-
-    .best-movie-container img {
-      width: 100%;
-    }
-    .catalogue {
-      width: 100%;
-    }
-
-    .movie-container {
-      display: column;
-      justify-content: center;
-    }
-    
-    .movie-box {
-      width: 100%; 
-      margin: 10px auto;
-    }
-  
-    .category-list {
-      padding: 15px;
-    }
-
-    #modal-content {
-      padding: 20px;
-      display: block;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 100%;
-      max-height: fit-content;
-      overflow-y: scroll
-    }
-
-    #modal-poster {
-      display: flex;
-      justify-self: center;
-      margin: 1rem auto;
-      flex-grow: initial;
-    }
-
-    .technical-datasheet, #modal-poster #synopsis, #casting {
-      width: 100%;
-    }
-
+  .site-title, .site-title-image {
+    display: none;
   }
-  
-  
+
+  section {
+    margin: 2em 0;
+    width: 100%;
+  }
+
+  .movie-box {
+    width: 100%;
+    margin: 2em auto;
+  }
+
+  #best-movie {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .best-movie-poster {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .best-movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

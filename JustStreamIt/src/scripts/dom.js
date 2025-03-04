@@ -29,8 +29,9 @@ export function renderMovieBox(movie, dataId) {
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
 
-  const titleP = document.createElement("p");
-  titleP.innerText = movie.title;
+  const titleH3 = document.createElement("h3");
+  titleH3.innerText = movie.title;
+  titleH3.className = "movie-title"
 
   const detailsBtn = document.createElement("button");
   detailsBtn.classList.add("open-modal");
@@ -42,7 +43,7 @@ export function renderMovieBox(movie, dataId) {
           openModal();
         });
 
-  overlay.appendChild(titleP);
+  overlay.appendChild(titleH3);
   overlay.appendChild(detailsBtn);
   movieBox.appendChild(img);
   movieBox.appendChild(overlay);
