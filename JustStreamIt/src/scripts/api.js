@@ -1,7 +1,14 @@
 import { moviesUrl, genresUrl } from "./config.js"; 
 import { createMovieModel } from "./models.js"; 
 
+/**
+ * This module manages all business logic related to resource requests 
+ * and any manipulation of the OCMovies API.
+ */
 
+/**
+ * Asynchronously fetches JSON data from the provided URL.
+ */
 export async function fetchData(url) {
     const response = await fetch(url);
     if (!response.ok) {
@@ -10,6 +17,11 @@ export async function fetchData(url) {
     return await response.json(); 
 }
 
+/**
+ * Fetches the list of movies sorted in descending order by IMDB score.
+ *
+ * Uses the base movies URL with a query parameter for sorting.
+ */
 export async function getBestMoviesList() {
     const url = `${moviesUrl}?sort_by=-imdb_score`;
     const data = await fetchData(url);
@@ -19,10 +31,16 @@ export async function getBestMoviesList() {
     return data;
 }
 
+/**
+ * Fetches detailed information for a movie using its specific URL.
+ */
 export async function bestMovieFromUrl(bestMovieUrl) {
     return fetchData(bestMovieUrl);
 }
 
+/**
+ * Extracts the URL for the next page from the paginated data.
+ */
 export function getNextPage(urlData) {
     try {
         let nextURL = urlData.next;
@@ -37,6 +55,11 @@ export function getNextPage(urlData) {
     }
 }
 
+/**
+ * Fetches all pages of results from the base URL.
+ *
+ * Iterates through the pages as long as a next page URL exists, fetching data from each page.
+ */
 export async function fetchAllPages(baseUrl) { 
     let currentPage = baseUrl;
     const allData = [];
@@ -49,6 +72,11 @@ export async function fetchAllPages(baseUrl) {
     return allData;
 }
 
+/**
+ * Fetches a specified number of pages of results from the provided URL.
+ *
+ * Iterates through the pages until the required number of pages is reached or pagination ends.
+ */
 export async function fetchTheAmountOfPagesRequired(url, numberOfPages) {
     let nextUrl = url;
     const pagesData = [];
@@ -63,6 +91,9 @@ export async function fetchTheAmountOfPagesRequired(url, numberOfPages) {
     return pagesData;
 }
 
+/**
+ * Extracts movie IDs from an object containing a list of movies.
+ */
 function extractMoviesIdsFromData(dataList) {
     const moviesIDs = [];
     try {
@@ -75,6 +106,11 @@ function extractMoviesIdsFromData(dataList) {
     return moviesIDs;
 }
 
+/**
+ * Retrieves movie details by their IDs and constructs an array of movie objects.
+ *
+ * For each provided ID, fetches the movie details and creates a movie model using createMovieModel.
+ */
 async function getMoviesFromIDs(sciFiMoviesIDs, sciFiMoviesList = []) {
     for (const id of sciFiMoviesIDs) {
         try {
@@ -82,12 +118,18 @@ async function getMoviesFromIDs(sciFiMoviesIDs, sciFiMoviesList = []) {
             const sciFiMovie = createMovieModel(filmDetails);
             sciFiMoviesList.push(sciFiMovie);
         } catch (error) {
-            console.log(`Erreur lors du listing des films d'sciFis : ${error}`);
+            console.log(`Erreur lors du listing des films de Science-Fiction : ${error}`);
         }
     }
     return sciFiMoviesList;
 }
 
+/**
+ * Extracts and returns a list of six movies to display from the provided URL.
+ *
+ * The function paginates through results, accumulating movies until six are collected.
+ * For each movie, it fetches detailed data using the movie URL and creates a movie model with createMovieModel.
+ */
 export async function extractSixMoviesToDisplay(url) {
     let movies = [];
     let currentUrl = url;
@@ -100,7 +142,7 @@ export async function extractSixMoviesToDisplay(url) {
               const details = await fetchData(movieRef.url);
               return createMovieModel(details);
             } catch (err) {
-              console.error(`Erreur lors du fetch du film ${movieRef.url}: ${err}`);
+              console.error(`Error fetching movie at ${movieRef.url}: ${err}`);
               return null;
             }
           })
@@ -112,11 +154,21 @@ export async function extractSixMoviesToDisplay(url) {
     return movies.slice(0, 6);
 }
 
+/**
+ * Fetches a list of six movies for a given category, sorted by descending average vote.
+ *
+ * Constructs the query URL by encoding the category, then uses extractSixMoviesToDisplay to obtain the movies.
+ */
 export async function getMoviesByCategory(category) {
     const categoryUrl = moviesUrl + `?genre=${encodeURIComponent(category.toLowerCase())}&sort_by=-avg_vote`;
     return await extractSixMoviesToDisplay(categoryUrl);
 }
 
+/**
+ * Retrieves all available genres from the API.
+ *
+ * Uses fetchAllPages to fetch all pages of genres, then aggregates the results.
+ */
 export async function getAllGenres() {
     const pagesData = await fetchAllPages(genresUrl);
     const genres = [];

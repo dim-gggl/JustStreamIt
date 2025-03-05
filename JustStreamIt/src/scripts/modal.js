@@ -1,3 +1,6 @@
+/**
+ * Opens the modal by setting its display style to "block".
+ */
 export function openModal() {
   const modal = document.getElementById("modal");
   if (modal) {
@@ -5,6 +8,9 @@ export function openModal() {
   }
 }
 
+/**
+ * Closes the modal by setting its display style to "none".
+ */
 export function closeModal() {
   const modal = document.getElementById("modal");
   if (modal) {
@@ -12,6 +18,12 @@ export function closeModal() {
   }
 }
 
+/**
+ * Initializes the modal by setting up event listeners.
+ *
+ * Adds an event listener to the close button to trigger modal closing,
+ * and listens for clicks on the window to close the modal if a click occurs outside of it.
+ */
 export function initModal() {
   const modal = document.getElementById("modal");
   const closeButton = document.getElementById("close-modal");
@@ -27,6 +39,12 @@ export function initModal() {
   });
 }
 
+/**
+ * Fills the modal with the provided movie details.
+ *
+ * Updates various modal elements (title, poster, description, technical details,
+ * directors, and casting) based on the movie object's properties.
+ */
 export function fillModalContent(movie) {
   const modalTitle = document.getElementById("modal-title");
   const modalPosterImg = document.querySelector("#modal-poster img");

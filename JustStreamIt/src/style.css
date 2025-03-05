@@ -6,7 +6,9 @@
   /* Global settings */
   :root {
     --dark-bg: #021117;
+    --light-bg: #dffff7;
     --dark-red: #7e0000;
+    --light-red: #cd0000;
     --dark-mint-ref: #e3fff8;
     --flashy-mint: #22ffd1;
     --logo-green: #5CABAC;
@@ -241,7 +243,6 @@
 /* Global Styles */
 body {
   width: 100%;
-  font-size: 12px;
   color: var(--dark-mint-ref);
   background-color: var(--dark-bg);
   padding-bottom: 10vh;
@@ -254,7 +255,7 @@ body {
 }
 
 .movie-title {
-  font-size: 4em;
+  font-size: 4rem;
   font-family: var(--movie-font);
   font-weight: 400;
   font-style: normal;
@@ -263,6 +264,7 @@ body {
 
 /* Header Styles */
 header {
+  padding-block: 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -270,7 +272,7 @@ header {
   justify-content: space-around;
   align-content: space-around;
   text-align: center;
-  padding: 2rem auto;
+  padding: 3rem auto;
   background: var(--dark-bg);
   border-bottom: 1px solid linear-gradient(to right, var(--flashy-mint), var(--dark-bg));
   max-height: 25vh;
@@ -288,7 +290,6 @@ header {
   max-width: 25vh;
   margin: 0 auto 2em 0;
   filter: var(--neon-logo-mint-img);
-  animation: flashing 8s ease-in-out infinite;
 }
 
 /* Section Titles and Section Margin */
@@ -298,15 +299,15 @@ section {
 }
 
 h1 {
-  font-size: 7em;
+  font-size: 6rem;
 }
 
 h2 {
-  font-size: 5.5em;
+  font-size: 5rem;
 }
 
 h3 {
-  font-size: 4em;
+  font-size: 4.5rem;
 }
 
 .section-title {
@@ -318,65 +319,64 @@ h3 {
 
 /* Best Movie Section */
 #best-movie .section-title {
-  margin: 0.3em auto;
-  text-align: center;
+  margin: 0 auto 3rem auto;
+  text-align: left;
 }
 
 /* The litteral "section" tag container */
 #best-movie { 
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: block;
   min-width: 60%;
   max-width: 90%; 
   padding: 4em;
-  justify-content: space-around;
-  margin: 0 10vh;
-  border: 1px solid #b46dfc;
-  border-radius: 13px;
+  margin: 0 12vh;
 }
 
 #best-movie-title {
-  font-size: 4em;
+  font-size: 4rem;
   font-family: var(--movie-font);
   font-weight: 400;
   font-style: normal;
-  color: var(--dark-red);
+  /* color: var(--dark-red); */
+  color: var(--dark-mint-ref);
   text-shadow:
       0 0 1px #FFF,
       0 0 2px var(--dark-red),
-      0 0 3px var(--dark-red),
       0 0 4px var(--dark-red),
-      0 0 5px var(--dark-red),
       0 0 6px var(--dark-red),
-      0 0 7px var(--dark-red),
-      0 0 8px var(--dark-red), 
-      0 0 9px var(--dark-red);
-  margin-block: 2rem;
+      0 0 10px var(--dark-red),
+      0 0 14px var(--dark-red),
+      0 0 20px var(--dark-red),
+      0 0 26px var(--dark-red), 
+      0 0 30px var(--dark-red);
 }
 
 .best-description {
-  font-size: 2em;
+  font-size: 1.5rem;
   margin-block: 1em;
 }
 
 /* Smaller container to organize the elements */
 .best-movie-container {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 1.5rem;
-  border-radius: 10px;
+  justify-items: left;
+  padding: 4rem;
+  border: 1px solid #ce9eff;
+  border-radius: 13px;
+
 }
 
 /* The text part of the section */
 .best-movie-container article {
-  margin-left: 3em;
+  margin-left: 4rem;
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center;
+  justify-content: space-around;
+  text-align: justify;
+  max-width: 65vh;
 }
 
 .best-movie-poster {
@@ -467,6 +467,9 @@ button:hover {
   transition: opacity 0.3s ease;
 }
 
+.overlay h3 {
+  color: var(--dark-mint-ref)
+}
 .movie-box:hover .overlay {
   opacity: 1;
 }
@@ -500,29 +503,40 @@ button:hover {
 
 .category-list {
   font-family: var(--category-font);
-  background-color: var(--dark-red);
-  color: var(--dark-bg);
-  font-size: 2em;
+  /* background-color: var(--dark-red); */
+  background: linear-gradient(315deg, 
+      hsla(0, 100%, 15%, 1) 0%, 
+      hsla(0, 77%, 27%, 1) 23%, 
+      hsla(0, 66%, 44%, 1) 40%, 
+      hsla(0, 65%, 47%, 1) 43%, 
+      hsla(0, 64%, 50%, 1) 49%, 
+      hsla(0, 66%, 44%, 1) 58%, 
+      hsla(0, 74%, 30%, 1) 70%, 
+      hsla(0, 100%, 15%, 1) 91%);
+  color: #bff6e8;
+  font-size: 2rem;
   padding: 1vh 5vh;
   margin-left: 7vh;
+  margin-bottom: 0;
   border: none;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 45% 51% 30% 24% / 67% 70% 0% 0% ;
   text-align: center;
   text-justify: center;
+  text-shadow: 1px 1px 1px rgba(20, 17, 17, 0.533);
   width: 25vh;
 }
 
 .dropdown-child {
   display: none;
   position: absolute;
-  background-color: #bff6e8;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
   min-width: 50vh;
-  z-index: 1;
-  margin-bottom: 10vh;
+  z-index: 2;
+  margin-bottom: 5vh;
   overflow-y: scroll;
-  transition: display 0.5s ease-in-out;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .dropdown-child a {
@@ -532,18 +546,18 @@ button:hover {
   flex-basis: auto;
   max-width: 100%;
   font-family: var(--category-font);
-  padding: 2vh;
+  padding: 1rem;
   text-decoration: none;
-  color: #ff3030;
-  font-size: 2em;
+  color: var(--dark-bg);
+  font-size: 2rem;
   text-align: center;
   text-justify: center;
-  background-color: #bff6e8;
+  background-color: #1bbeffaa;
 }
 
 .dropdown-child a:hover {
-  background-color: #7e0000;
-  color: #f3dec6;
+  background-color:#0211178e;
+  color: var(--dark-mint-ref);
 }
 
 .dropdown:hover .dropdown-child {
@@ -551,7 +565,9 @@ button:hover {
   flex-direction: auto;
   flex-wrap: wrap;
   overflow-y: auto;
+  justify-content: baseline;
   max-width: 100%;
+  opacity: 1;
 }
 
 /* Modal Styles */
@@ -596,10 +612,11 @@ button:hover {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-size: 4em;
+  font-size: 4rem;
   font-weight: 600;
   letter-spacing: -1;
   color: #ff3030;
+  margin-bottom: 1rem;
 }
 
 .technical-datasheet {
@@ -611,13 +628,13 @@ button:hover {
 .technical {
   font-family: var(--font-family);
   text-align: left;
-  font-size: 1.3em;
+  font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 0;
 }
 
 #directors em {
-  font-size: 2em;
+  font-size: 2rem;
   font-family: var(--category-font);
   font-style: normal;
 }
@@ -625,13 +642,12 @@ button:hover {
 #directors {
   margin-block: 1rem;
   font-family: var(--font-family);
-  font-size: 2.5em;
+  font-size: 3rem;
   font-weight: 400;
 }
 
 #modal-poster {
   margin: 0 0 auto auto;
-  z-index: 2;
   align-self: baseline;
   justify-self: right;
   padding: 0%;
@@ -639,61 +655,43 @@ button:hover {
   min-width: 30vh;
 }
 
-#synopsis {
+#long-description, #casting {
   margin-block: 1em;
-  font-size: 2.5em;
+  font-size: 1.5rem;
   text-align: justify;
   font-weight: 400;
 }
 
 .synopsis-literal-word {
-  font-size: 1em;
+  font-size: 2.5rem;
   font-family: var(--category-font);
 }
 
-#casting {
-  margin-block: 1em;
-  font-size: 14px;
-  font-weight: 400;
-}
-
 .casting-literal-word {
-  font-size: 2em;
+  font-size: 2.5rem;
   font-family: var(--category-font);
 }
 
 .close-modal {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #close-modal {
   margin: 0 auto;
-  justify-self: center;
-  justify-content: center;
   text-align: center;
   color: var(--dark-mint-ref);
   background-color: var(--dark-red);
   font-weight: bold;
+  width: 10rem;
+  height: 4rem;
 }
 
-/* Responsive Design: Breaking points and media queries */
+/* Responsive Design: */
+/* Breaking points and media queries */
 
 /* Tablets */
 @media screen and (max-width: 1024px) {
-
-  h1 {
-    font-size: 6em;
-  }
-
-  h2 {
-    font-size: 5em;
-  }
-
-  h3 {
-    font-size: 4em;
-  }
-
   section {
     padding:0;
     margin: 0;
@@ -711,8 +709,25 @@ button:hover {
     max-width: 100%;
   }
 
-  #best-movie-img {
+  #best-movie .section-title {
+    text-align: center;
+  }
+
+  .best-movie-poster, #best-movie-img {
     width: 100%;
+  }
+
+  .best-movie-container article {
+    margin: 3rem;
+    padding: 0;
+  }
+
+  .best-description {
+    text-align: justify;
+  }
+
+  #close-modal {
+    width: 10vh;
   }
   
   .movie-box {
@@ -739,13 +754,11 @@ button:hover {
   }
 
   .technical {
-    font-size: 1.3em;
     text-align: center;
   }
 
   #directors {
     text-align: center;
-    font-size: 2em;
   }
 
   #modal-poster {
@@ -762,51 +775,9 @@ button:hover {
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
-  /* Hide movies 4 to 6 by default */
-  .movie-container .movie-box:nth-child(n+4) {
-    display: none;
-  }
-  
-  /* Hide checkbox (use its state for toggle) */
-  .toggle-checkbox {
-    display: none;
-  }
-  
-  /* Button style (label) */
-  .toggle-label {
-    display: block;
-    margin: 1rem auto;
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    background-color: var(--dark-red);
-    color: var(--dark-mint-ref);
-    border-radius: 25px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1em;
-    font-family: var(--font-family);
-  }
-  
-  /* When the checkbox is checked, display hidden films */
-  .toggle-checkbox:checked ~ .movie-container .movie-box {
-    display: flex; 
-  }
-  
-  /* Change button text according to checkbox status */
-  .toggle-checkbox:not(:checked) + .toggle-label::after {
-    content: "Voir plus";
-  }
-  
-  .toggle-checkbox:checked + .toggle-label::after {
-    content: "Voir moins";
-  }
 
   .loader-overlay {
     max-height: 100vh;
-  }
-
-  .loader-title-style {
-    font-size: 4em;
   }
 
   header {
@@ -851,5 +822,50 @@ button:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  #modal-poster {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  
+  #modal-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+}
+
+@media (prefers-color-scheme: light) {
+  /* Styles pour le thème clair */
+  body {
+    background-color: var(--light-bg);
+    color: var(--dark-bg)
+  }
+
+  .best-movie-container {
+    border: 1px solid #37256f;
+  }
+
+  #best-movie-title {
+    color: var(--light-red);
+    text-shadow: none;
+  }
+
+  #modal-content {
+    color: var(--dark-bg);
+    background-color: var(--light-bg);
+    border: 1px solid #8359ff;
+  }
+
+  #modal-title {
+    color: var(--light-red);
+  }
+
+  button {
+    background-color: var(--light-red);
+    color: var(--dark-bg)
   }
 }

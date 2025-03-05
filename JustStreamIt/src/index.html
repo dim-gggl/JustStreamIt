@@ -9,7 +9,6 @@
   <script type="module" defer src="scripts/script.js"></script>
 </head>
 
-
   <section class="loader-overlay" id="loader-overlay">
     <div class="loader-main">
     <div class="loader-logo-container">
@@ -22,18 +21,14 @@
   </section>
 
   <body>
-
   <header>
-    <img src="static/mecanical-logo.gif" class="header-logo" alt="Logo de JustStreamIt">
+    <img src="static/static-logo.png" class="header-logo" alt="Logo de JustStreamIt">
     <img src="static/streamIT-site-name.png" class="site-title-image" alt="streamIT">
   </header>
         
   <main>
-
     <section id="best-movie">
       <h2 class="section-title">Meilleur Film</h2>
-      <input type="checkbox" class="toggle-checkbox" id="toggle-bio">
-      <label for="toggle-bio" class="toggle-label"></label>
       <div class="best-movie-container">
         <div class="best-movie-poster">
         <img id="best-movie-img" src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du meilleur film">
@@ -48,8 +43,6 @@
 
     <section id="biography" class="catalogue">
         <h2 class="section-title">Biography</h2>
-        <input type="checkbox" class="toggle-checkbox" id="toggle-bio">
-        <label for="toggle-bio" class="toggle-label"></label>
       <div class="movie-container">
         <div class="movie-box">
           <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
@@ -72,6 +65,7 @@
             <button class="open-modal regtext" data-id="docu-3">Détails</button>
           </div>
         </div>
+        <button class="toggle-extra-movies"></button>
         <div class="movie-box">
           <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
           <div class="overlay">
@@ -98,9 +92,7 @@
 
     <section id="sci-fi" class="catalogue">
         <h2 class="section-title">Sci-Fi</h2>
-        <input type="checkbox" class="toggle-checkbox" id="toggle-bio">
-        <label for="toggle-bio" class="toggle-label"></label>
-      <div class="movie-container">
+        <div class="movie-container">
         <div class="movie-box">
           <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
           <div class="overlay">
@@ -122,6 +114,7 @@
             <button class="open-modal regtext" data-id="sci-fi-3">Détails</button>
           </div>
         </div>
+        <button class="toggle-extra-movies"></button>
         <div class="movie-box">
           <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
           <div class="overlay">
@@ -148,8 +141,6 @@
 
     <section class="selected-category catalogue">
         <h2 class="section-title">Autres</h2>
-        <input type="checkbox" class="toggle-checkbox" id="toggle-bio">
-        <label for="toggle-bio" class="toggle-label"></label>
         <div class="dropdown">
           <button class="category-list">Categories</button>
           <div class="dropdown-child">
@@ -184,8 +175,6 @@
 
       <section class="selected-category catalogue comedy">
         <h2 class="section-title">Others</h2>
-        <input type="checkbox" class="toggle-checkbox" id="toggle-bio">
-        <label for="toggle-bio" class="toggle-label"></label>
         <div class="dropdown">
           <button class="category-list">Categories</button>
           <div class="dropdown-child">
@@ -262,6 +251,6 @@
     <p>© 2025 JustStreamIt</p>
   </footer>
 
-</body>
+  </body>
 
 </html>

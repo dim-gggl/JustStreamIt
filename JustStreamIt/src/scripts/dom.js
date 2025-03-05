@@ -1,6 +1,11 @@
 import { fillModalContent, openModal } from "./modal.js"; 
 
-
+/**
+ * Updates the "Best Movie" section in the DOM with the provided movie details.
+ *
+ * This function sets the image source, alternative text, title, and description of the best movie.
+ * If any required DOM element is not found, an alert is displayed.
+ */
 export function setBestMovie(movie) {
   const bestMovieImage = document.getElementById("best-movie-img");
   const bestMovieTitle = document.getElementById("best-movie-title");
@@ -15,6 +20,11 @@ export function setBestMovie(movie) {
   bestMovieDescription.innerText = movie.description || "Description non disponible";
 }
 
+/**
+ * Creates a movie box element that displays a movie's image, title, and a button to open a modal with more details.
+ *
+ * The details button is configured with an event listener to fill the modal content and open the modal when clicked.
+ */
 export function renderMovieBox(movie, dataId) {
   const movieBox = document.createElement("div");
   movieBox.classList.add("movie-box");
@@ -50,10 +60,20 @@ export function renderMovieBox(movie, dataId) {
   return movieBox;
 }
 
+/**
+ * Clears the content of a given container element.
+ */
 export function clearContainer(containerElement) {
   containerElement.innerHTML = "";
 }
 
+
+/**
+ * Creates and appends a new genre section to the document body.
+ *
+ * The section element is assigned an id based on the lowercased category name and given a header
+ * with the capitalized category name.
+ */
 export function createGenreSection(categoryName) {
   let sectionContainer = document.createElement("section"); 
   sectionContainer.id = categoryName.toLowerCase();  
@@ -66,6 +86,14 @@ export function createGenreSection(categoryName) {
   return sectionContainer;
 }
 
+
+/**
+ * Populates a genre section with movie boxes.
+ *
+ * This function finds the category section by its lowercased name, locates (or creates) its movie container,
+ * clears any existing content, and appends new movie boxes for each valid movie provided.
+ * If the section is not found, it creates a new genre section and retries.
+ */
 export function setCategoryMovies(movies, categoryName) {
   try {
     let categorySection = document.getElementById(`${categoryName.toLowerCase()}`)
@@ -89,6 +117,12 @@ export function setCategoryMovies(movies, categoryName) {
   }
 }
 
+/**
+ * Populates all dropdown menus for category selection with genre options.
+ *
+ * For each dropdown container found with the class ".selected-category .dropdown-child",
+ * this function clears its current content and appends an anchor element for each genre.
+ */
 export function setCategoryDropdownButtons(genres) {
   const dropdownContainers = document.querySelectorAll(".selected-category .dropdown-child");
   dropdownContainers.forEach(dropdown => {
