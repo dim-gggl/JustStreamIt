@@ -53,8 +53,10 @@ venv\Scripts\activate
 ```
 ---
   
-### 3.	**Installer les dépendances** requises pour l’API :
+### 3.	**Installer les dépendances** requises pour l’API et la base de données:
   
+- a. Les dépendances :
+
 ```bash
 pip install -r OCMovies-API-EN-FR/requirements.txt
 ```
@@ -64,6 +66,19 @@ ou
 ```bash
 pip3 install -r OCMovies-API-EN-FR/requirements.txt
 ```
+
+ET
+
+```bash
+pip install -r OCMovies-API-EN-FR/requirements-dev.txt
+```
+
+- b. La base de données :
+
+```bash
+python3 OCMovies-API-EN-FR/manage.py create_db
+```
+
 ---
   
 ### 4. **Lancement** des serveurs
@@ -206,7 +221,9 @@ venv\Scripts\activate
 ---
   
 ### 3.	**Install the dependencies** required for the API :
-  
+
+- a. Dependencies :
+
 ```bash
 pip install -r OCMovies-API-EN-EN/requirements.txt
 ```
@@ -214,10 +231,21 @@ pip install -r OCMovies-API-EN-EN/requirements.txt
 or
 
 ```bash
-pip3 install -r OCMovies-API-EN-EN/requirements.txt
+pip3 install -r OCMovies-API-EN-FR/requirements.txt
 ```
----
-  
+
+AND
+
+```bash
+pip install -r OCMovies-API-EN-FR/requirements-dev.txt
+```
+
+- b. The database :
+
+```bash
+python3 OCMovies-API-EN-EN/manage.py create_db
+```
+
 ### 4. **Launch** the servers
   
 #### - A Python **script**, `run_servers.py`, is located at the root of the project and simultaneously launches :
