@@ -1,4 +1,4 @@
-import { moviesUrl, genresUrl } from "./config.js"; 
+import { moviesUrl, genresUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter } from "./config.js"; 
 import { createMovieModel } from "./models.js"; 
 
 /**
@@ -160,7 +160,7 @@ export async function extractSixMoviesToDisplay(url) {
  * Constructs the query URL by encoding the category, then uses extractSixMoviesToDisplay to obtain the movies.
  */
 export async function getMoviesByCategory(category) {
-    const categoryUrl = moviesUrl + `?genre=${encodeURIComponent(category.toLowerCase())}&sort_by=-avg_vote`;
+    const categoryUrl = moviesUrl + moviesByGenreFilter + category.toLowerCase() + "&" + sortByFilter + imdbScoreFilter;
     return await extractSixMoviesToDisplay(categoryUrl);
 }
 

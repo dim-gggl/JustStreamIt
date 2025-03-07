@@ -8,7 +8,9 @@
     --dark-bg: #021117;
     --light-bg: #dffff7;
     --dark-red: #7e0000;
-    --light-red: #cd0000;
+    --warm-yellow: #E47846;
+    --light-red: var(--warm-yellow);
+    --bright-blue: #12e4ef;
     --dark-mint-ref: #e3fff8;
     --flashy-mint: #22ffd1;
     --logo-green: #5CABAC;
@@ -16,6 +18,48 @@
     --font-family: "Roboto Condensed", sans-serif;
     --movie-font: "Dancing Script", serif;
     --category-font : "Racing Sans One", serif;
+    --fresh-mint-green-svg-filter: 
+        invert(67%) sepia(5%) 
+        saturate(2755%) hue-rotate(132deg) 
+        brightness(91%) contrast(94%);
+    --dark-red-svg-filter: invert(8%) sepia(76%) 
+    saturate(6569%) hue-rotate(10deg) 
+    brightness(84%) contrast(113%);
+    --bright-blue-filter: invert(45%) sepia(75%) 
+    saturate(583%) hue-rotate(135deg) 
+    brightness(94%) contrast(87%);
+    --warm-yellow-svg-filter: invert(65%) sepia(36%) 
+        saturate(4155%) hue-rotate(332deg) 
+        brightness(96%) contrast(85%);
+    --dark-red-gradient : linear-gradient(315deg, 
+        hsla(0, 100%, 15%, 1) 0%, 
+        hsla(0, 77%, 27%, 1) 23%, 
+        hsla(0, 66%, 44%, 1) 40%, 
+        hsla(0, 65%, 47%, 1) 43%, 
+        hsla(0, 64%, 50%, 1) 49%, 
+        hsla(0, 66%, 44%, 1) 58%, 
+        hsla(0, 74%, 30%, 1) 70%, 
+        hsla(0, 100%, 15%, 1) 91%);
+    --warm-yellow-gradient: linear-gradient(135deg, 
+        hsla(19, 61%, 54%, 1) 4%,
+        hsla(19, 80%, 63%, 1) 20%, 
+        hsla(19, 84%, 67%, 1) 28%,
+        hsla(19, 93%, 73%, 1) 37%,
+        hsla(19, 100%, 76%, 1) 47%,
+        hsla(19, 94%, 74%, 1) 59%, 
+        hsla(19, 81%, 65%, 1) 76%,
+        hsla(19, 77%, 62%, 1) 82%,
+        hsla(19, 69%, 58%, 1) 89%,
+        hsla(19, 61%, 54%, 1) 100%);
+    --warm-yellow-shadow:
+        drop-shadow(0 0 1px #FFF)
+        drop-shadow(0 0 2px #FFF)
+        drop-shadow(0 0 4px #FFF)
+        drop-shadow(0 0 5px var(--warm-yellow))
+        drop-shadow(0 0 6px var(--warm-yellow))
+        drop-shadow(0 0 8px var(--warm-yellow))
+        drop-shadow(0 0 9px var(--warm-yellow))
+        drop-shadow(0 0 10px var(--warm-yellow));
     --neon-logo-mint:
         0 0 5px #FFF,
         0 0 10px #FFF,
@@ -34,6 +78,10 @@
         drop-shadow(0 0 8px var(--logo-green))
         drop-shadow(0 0 9px var(--logo-green))
         drop-shadow(0 0 10px var(--logo-green));
+    --relief-logo-effect: 
+        drop-shadow(1px 1px 0px #E47846) 
+        drop-shadow(2px 2px 0px #E47846) 
+        drop-shadow(3px 3px 3px var(--logo-green));
     --shadow-box:
         4.8px 4.8px 1.9px -9px rgba(0, 0, 0, 0.65),
         9.5px 9.3px 3.6px -9px rgba(0, 0, 0, 0.506),
@@ -53,6 +101,14 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 12px;
+}
+
+.light-theme {
+  display: none;
+}
+
+.dark-theme {
+  display: block;
 }
 
 /* Loading overlay screen styles */
@@ -87,12 +143,12 @@
 
 .loader-logo-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 40vh;
+  height: 40vh;
 }
 
 /* The original JustStreamIt Logo divided in 3 layers */ 
-.loader-logo-container img {
+.loader-logo {
   position: absolute;
   top: 0;
   left: 0;
@@ -103,11 +159,11 @@
 
 /* "Stream IT" site Name */
 .loader-title {
-  filter: var(--neon-logo-mint-img);
   z-index: 2;
   top: 0;
-  max-width: 40vh;
+  max-width: 70vh;
   opacity: 0;
+  filter: var(--neon-logo-mint-img);
   animation: flashing 8s linear 3 4s;
 }
 
@@ -275,19 +331,19 @@ header {
   padding: 3rem auto;
   background: var(--dark-bg);
   border-bottom: 1px solid linear-gradient(to right, var(--flashy-mint), var(--dark-bg));
-  max-height: 25vh;
+  max-height: 35vh;
   width: 100%;;
 }
 
 .header-logo {
   margin: 0 0 2em auto;
-  max-height: 25vh;
+  max-height: 33vh;
   max-width: 100%;
 }
 
 .site-title-image {
-  max-height: 25vh;
-  max-width: 25vh;
+  max-height: 100%;
+  max-width: 60vh;
   margin: 0 auto 2em 0;
   filter: var(--neon-logo-mint-img);
 }
@@ -364,7 +420,7 @@ h3 {
   flex-wrap: wrap;
   justify-items: left;
   padding: 4rem;
-  border: 1px solid #ce9eff;
+  border: 1px solid #8D80AD;
   border-radius: 13px;
 
 }
@@ -504,15 +560,7 @@ button:hover {
 .category-list {
   font-family: var(--category-font);
   /* background-color: var(--dark-red); */
-  background: linear-gradient(315deg, 
-      hsla(0, 100%, 15%, 1) 0%, 
-      hsla(0, 77%, 27%, 1) 23%, 
-      hsla(0, 66%, 44%, 1) 40%, 
-      hsla(0, 65%, 47%, 1) 43%, 
-      hsla(0, 64%, 50%, 1) 49%, 
-      hsla(0, 66%, 44%, 1) 58%, 
-      hsla(0, 74%, 30%, 1) 70%, 
-      hsla(0, 100%, 15%, 1) 91%);
+  background: var(--dark-red-gradient);
   color: #bff6e8;
   font-size: 2rem;
   padding: 1vh 5vh;
@@ -568,6 +616,27 @@ button:hover {
   justify-content: baseline;
   max-width: 100%;
   opacity: 1;
+}
+
+.to-define-section {
+  display: block;
+}
+
+.waiting-window-container {
+  background-color: #010c10c0;
+  border: 2px solid hsl(29, 96%, 47%);
+  border-radius: 20px;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 65vh;
+}
+
+.waiting-logo {
+  margin: auto;
+  max-width: 30vh;
+  aspect-ratio: 1.11 / 1;
 }
 
 /* Modal Styles */
@@ -690,6 +759,67 @@ button:hover {
 /* Responsive Design: */
 /* Breaking points and media queries */
 
+/* Light Theme */
+@media (prefers-color-scheme: light) {
+  .dark-theme {
+    display: none;
+  }
+
+  .light-theme {
+    display: block;
+  }
+
+  .loader-overlay, header {
+    background-color: var(--light-bg);
+  }
+
+  .loader-title {
+    filter: var(--relief-logo-effect);
+  }
+
+  body {
+    background-color: var(--light-bg);
+    color: var(--dark-bg)
+  }
+
+  .site-title-image {
+    filter: var(--relief-logo-effect);
+  }
+
+  .best-movie-container {
+    border: 1px solid #37256f;
+  }
+
+  #best-movie-title {
+    color: var(--light-red);
+    text-shadow: none;
+  }
+
+  #modal-content {
+    color: var(--dark-bg);
+    background-color: var(--light-bg);
+    border: 1px solid #8359ff;
+  }
+
+  #modal-title {
+    color: var(--light-red);
+  }
+
+  button {
+    background-color: var(--light-red);
+    color: var(--dark-bg)
+  }
+
+  .category-list {
+    background: var(--warm-yellow-gradient);
+  }
+
+  .waiting-window-container {
+    background-color: var(--dark-bg);
+  }
+
+}
+
 /* Tablets */
 @media screen and (max-width: 1024px) {
   section {
@@ -777,7 +907,11 @@ button:hover {
 @media only screen and (max-width: 768px) {
 
   .loader-overlay {
-    max-height: 100vh;
+    max-width: 100vh; 
+  }
+
+  .site-title-image {
+    display: none;
   }
 
   header {
@@ -790,10 +924,6 @@ button:hover {
     height: 100%;
     width: auto;
     margin: auto;
-  }
-
-  .site-title, .site-title-image {
-    display: none;
   }
 
   section {
@@ -810,6 +940,10 @@ button:hover {
     width: 100%;
     padding: 0;
     margin: 0;
+  }
+
+  .best-movie-container {
+    width: 100%;
   }
 
   .best-movie-poster {
@@ -838,34 +972,32 @@ button:hover {
   
 }
 
-@media (prefers-color-scheme: light) {
-  /* Styles pour le thème clair */
+/* @media screen and (max-width: 567px) {
+  html {
+    padding: 0;
+  }
+
   body {
-    background-color: var(--light-bg);
-    color: var(--dark-bg)
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    align-content: space-evenly;
   }
 
-  .best-movie-container {
-    border: 1px solid #37256f;
+  header {
+    width: 100%;
   }
 
-  #best-movie-title {
-    color: var(--light-red);
-    text-shadow: none;
+  .site-title-image {
+    display: none;
   }
 
-  #modal-content {
-    color: var(--dark-bg);
-    background-color: var(--light-bg);
-    border: 1px solid #8359ff;
+  .header-logo {
+    max-width: 70%;
+    margin: auto;
   }
 
-  #modal-title {
-    color: var(--light-red);
-  }
-
-  button {
-    background-color: var(--light-red);
-    color: var(--dark-bg)
-  }
-}
+} */

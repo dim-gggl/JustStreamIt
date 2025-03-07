@@ -175,8 +175,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erreur lors du chargement des genres : ", error);
     alert("Erreur lors du chargement des genres.");
   }
-});
 
+  // Waiting window setting: disappears when a category
+  // is selected.
+  const btns = document.querySelectorAll(".to-define-section a");
+  const waitingWindow = document.querySelector(".waiting-window-container");
+
+  btns.forEach(a => {
+    a.onclick = (e) => {
+      e.preventDefault();
+      if (waitingWindow) {
+        waitingWindow.style.display = "none";
+      }
+    }
+  });
+});
 
 /**
  * Hides the loader overlay after the window has finished loading.
