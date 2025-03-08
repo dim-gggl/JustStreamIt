@@ -3,262 +3,253 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/vnd.icon" href="static/stream-it-ico.ico">
   <title>streamIT</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" defer src="scripts/script.js"></script>
 </head>
-
-  <section class="loader-overlay" id="loader-overlay">
-    <div class="loader-main">
-    <div class="loader-logo-container">
-        <img src="static/logo-center-layer.png" class="loader-logo in dark-theme"alt="Logo">
-        <img src="static/logo-mid-layer.png" class="loader-logo mid dark-theme" alt="Logo">
-        <img src="static/logo-out-layer.png" class="loader-logo out dark-theme" alt="Logo">
-        <img src="static/logo-center-layer-light.png" class="loader-logo in light-theme"alt="Logo">
-        <img src="static/logo-mid-layer-light.png" class="loader-logo mid light-theme" alt="Logo">
-        <img src="static/logo-out-layer-light.png" class="loader-logo out light-theme" alt="Logo">
-    </div>
-    <img src="static/streamIT-site-name.png" class="loader-title dark-theme" alt="streamIT">
-    <img src="static/streamIT-site-name-light.png" class="loader-title light-theme" alt="streamIT">
-    </div>
-  </section>
-
   <body>
-  <header>
-    <img src="static/static-logo.png" class="header-logo dark-theme" alt="Logo de JustStreamIt">
-    <img src="static/streamIT-site-name.png" class="site-title-image dark-theme" alt="streamIT">
-    <img src="static/static-logo-light.png" class="header-logo light-theme" alt="Logo de JustStreamIt">
-    <img src="static/streamIT-site-name-light.png" class="site-title-image light-theme" alt="streamIT">
-  </header>
+    <header>
+      <img src="static/static-logo.png" class="header-logo dark-theme" alt="Logo de JustStreamIt">
+      <!-- <img src="static/streamIT-site-name.png" class="site-title-image dark-theme" alt="streamIT"> -->
+      <img src="static/static-logo-light.png" class="header-logo light-theme" alt="Logo de JustStreamIt">
+      <!-- <img src="static/streamIT-site-name-light.png" class="site-title-image light-theme" alt="streamIT"> -->
+    </header>
         
-  <main>
-    <section id="best-movie">
-      <h2 class="section-title">Meilleur Film</h2>
-      <div class="best-movie-container">
-        <div class="best-movie-poster">
-        <img id="best-movie-img" src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du meilleur film">
+    <main>
+      <section id="best-movie">
+        <h2 class="section-title">Meilleur Film</h2>
+        <div class="best-movie-container">
+          <div class="best-movie-poster">
+          <img id="best-movie-img" src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du meilleur film">
+          </div>
+          <article>
+            <h3 id="best-movie-title">Lorem Ipsum</h3>
+            <p class="regtext best-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum auctor arcu.</p>
+            <button class="open-modal regtext" data-id="best-movie">Détails</button>
+          </article>
         </div>
-        <article>
-          <h3 id="best-movie-title">Lorem Ipsum</h3>
-          <p class="regtext best-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum auctor arcu.</p>
-          <button class="open-modal regtext" data-id="best-movie">Détails</button>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section id="biography" class="catalogue">
-        <h2 class="section-title">Biography</h2>
-      <div class="movie-container">
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="docu-1">Détails</button>
-          </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal" data-id="docu-2">Détails</button>
-          </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="docu-3">Détails</button>
-          </div>
-        </div>
-        <button class="toggle-extra-movies"></button>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="docu-4">Détails</button>
-          </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="docu-5">Détails</button>
-          </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="docu-6">Détails</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sci-fi" class="catalogue">
-        <h2 class="section-title">Sci-Fi</h2>
+      <section id="biography" class="biography catalogue">
+          <h2 class="section-title">Biography</h2>
         <div class="movie-container">
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal" data-id="sci-fi-1">Détails</button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="docu-1">Détails</button>
+            </div>
           </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="sci-fi-2">Détails</button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal" data-id="docu-2">Détails</button>
+            </div>
           </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="sci-fi-3">Détails</button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="docu-3">Détails</button>
+            </div>
           </div>
-        </div>
-        <button class="toggle-extra-movies"></button>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="sci-fi-4">Détails</button>
+          <button class="toggle-extra-movies"></button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="docu-4">Détails</button>
+            </div>
           </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="sci-fi-5">Détails</button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="docu-5">Détails</button>
+            </div>
           </div>
-        </div>
-        <div class="movie-box">
-          <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
-          <div class="overlay">
-            <p class="movie-title">Titre du film</p>
-            <button class="open-modal regtext" data-id="sci-fi-6">Détails</button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche biographie">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="docu-6">Détails</button>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="selected-category catalogue">
-        <h2 class="section-title">See more</h2>
-        <div class="dropdown">
-          <button class="category-list">Categories</button>
-          <div class="dropdown-child">
-            <a href="./index.html">Action</a>
-            <a href="./index.html">Adult</a>
-            <a href="./index.html">Adventure</a>
-            <a href="./index.html">Sci-Fi</a>
-            <a href="./index.html">Biography</a>
-            <a href="./index.html">Comedy</a>
-            <a href="./index.html">Crime</a>
-            <a href="./index.html">Documentary</a>
-            <a href="./index.html">Drama</a>
-            <a href="./index.html">Family</a>
-            <a href="./index.html">Fantasy</a>
-            <a href="./index.html">Film-Noir</a>
-            <a href="./index.html">History</a>
-            <a href="./index.html">Horror</a>
-            <a href="./index.html">Music</a>
-            <a href="./index.html">Musical</a>
-            <a href="./index.html">Mystery</a>
-            <a href="./index.html">News</a>
-            <a href="./index.html">Reality-TV</a>
-            <a href="./index.html">Romance</a>
-            <a href="./index.html">Sci-Fi</a>
-            <a href="./index.html">Sport</a>
-            <a href="./index.html">Thriller</a>
-            <a href="./index.html">War</a>
-            <a href="./index.html">Western</a>
-          </div>
+          <button class="toggle-btn">Voir plus</button>
         </div>
       </section>
 
-      <section class="selected-category catalogue to-define-section">
-        <h2 class="section-title">See more</h2>
-        <div class="dropdown">
-          <button class="category-list">Categories</button>
-          <div class="dropdown-child">
-            <a href="link-to-category-1">Action</a>
-            <a href="link-to-category-2">Adult</a>
-            <a href="link-to-category-3">Adventure</a>
-            <a href="link-to-category-4">Sci-Fi</a>
-            <a href="link-to-category-5">Biography</a>
-            <a href="link-to-category-6">Comedy</a>
-            <a href="link-to-category-7">Crime</a>
-            <a href="link-to-category-8">Documentary</a>
-            <a href="link-to-category-9">Drama</a>
-            <a href="link-to-category-10">Family</a>
-            <a href="link-to-category-11">Fantasy</a>
-            <a href="link-to-category-12">Film-Noir</a>
-            <a href="link-to-category-13">History</a>
-            <a href="link-to-category-14">Horror</a>
-            <a href="link-to-category-15">Music</a>
-            <a href="link-to-category-16">Musical</a>
-            <a href="link-to-category-17">Mystery</a>
-            <a href="link-to-category-18">News</a>
-            <a href="link-to-category-19">Reality-TV</a>
-            <a href="link-to-category-20">Romance</a>
-            <a href="link-to-category-21">Sci-Fi</a>
-            <a href="link-to-category-22">Sport</a>
-            <a href="link-to-category-23">Thriller</a>
-            <a href="link-to-category-24">War</a>
-            <a href="link-to-category-25">Western</a>
+      <section id="sci-fi" class="sci-fi catalogue">
+          <h2 class="section-title">Sci-Fi</h2>
+          <div class="movie-container">
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal" data-id="sci-fi-1">Détails</button>
+            </div>
           </div>
-        </div>
-        <div class="waiting-window-container">
-        <img src="static/waiting-logo.gif" class="waiting-logo" alt="Stream IT">
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="sci-fi-2">Détails</button>
+            </div>
+          </div>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="sci-fi-3">Détails</button>
+            </div>
+          </div>
+          <button class="toggle-extra-movies"></button>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="sci-fi-4">Détails</button>
+            </div>
+          </div>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="sci-fi-5">Détails</button>
+            </div>
+          </div>
+          <div class="movie-box">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche sci-fi">
+            <div class="overlay">
+              <h4 class="movie-title">Titre du film</h4>
+              <button class="open-modal regtext" data-id="sci-fi-6">Détails</button>
+            </div>
+          </div>
+          <button class="toggle-btn">Voir plus</button>
         </div>
       </section>
-  </main>
 
-  <section id="modal">
-    <section id="modal-content" class="modal-content">
-      <article>
-        <div class="modal-header">
-          <div class="technical-datasheet">
-          <h3 id="modal-title" class="titlestyle">Lorem Ipsum</h1>
-            <p class="technical regtext-bold">
-              Year, genre, genre, genre<br>
-              Age restrictions, duration, country, countries<br>
-              ImDB Score : Œ/∏
-            </p>
-            <p id="directors" class="regtext"><em class="regtext-bold">Réalisé par :</em><br>
-              Lo Rem & Ip Sum
+      <section class="selected-category catalogue">
+          <h2 class="section-title">See more</h2>
+          <div class="movie-container">
+            <div class="dropdown">
+              <button class="category-list-button">More categories  ▾</button>
+              <div class="dropdown-content">
+                <button class="category-dropdown-button">Action</button>
+                <button class="category-dropdown-button">Adult</button>
+                <button class="category-dropdown-button">Adventure</button>
+                <button class="category-dropdown-button">Sci-Fi</button>
+                <button class="category-dropdown-button">Biography<buttona>
+                <button class="category-dropdown-button">Comedy</button>
+                <button class="category-dropdown-button">Crime</button>
+                <button class="category-dropdown-button">Documentary</button>
+                <button class="category-dropdown-button">Drama</button>
+                <button class="category-dropdown-button">Family</button>
+                <button class="category-dropdown-button">Fantasy</button>
+                <button class="category-dropdown-button">Film-Noir</button>
+                <button class="category-dropdown-button">History</button>
+                <button class="category-dropdown-button">Horror</button>
+                <button class="category-dropdown-button">Music</button>
+                <button class="category-dropdown-button">Musical</button>
+                <button class="category-dropdown-button">Mystery</button>
+                <button class="category-dropdown-button">News</button>
+                <button class="category-dropdown-button">Reality-TV</button>
+                <button class="category-dropdown-button">Romance</button>
+                <button class="category-dropdown-button">Sci-Fi</button>
+                <button class="category-dropdown-button">Sport</button>
+                <button class="category-dropdown-button">Thriller</button>
+                <button class="category-dropdown-button">War</button>
+                <button class="category-dropdown-button">Western</button>
+              </div>
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+          </div>
+        </section>
+
+        <section class="selected-category catalogue to-define-section">
+          <h2 class="section-title">See more</h2>
+          <div class="movie-container">
+            <div class="dropdown">
+              <button class="category-list-button">More categories  ▾</button>
+              <div class="dropdown-content">
+                <button class="category-dropdown-button">Action</button>
+                <button class="category-dropdown-button">Adult</button>
+                <button class="category-dropdown-button">Adventure</button>
+                <button class="category-dropdown-button">Sci-Fi</button>
+                <button class="category-dropdown-button">Biography</button>
+                <button class="category-dropdown-button">Comedy</button>
+                <button class="category-dropdown-button">Crime</button>
+                <button class="category-dropdown-button">Documentary</button>
+                <button class="category-dropdown-button">Drama</button>
+                <button class="category-dropdown-button">Family</button>
+                <button class="category-dropdown-button">Fantasy</button>
+                <button class="category-dropdown-button">Film-Noir</button>
+                <button class="category-dropdown-button">History</button>
+                <button class="category-dropdown-button">Horror</button>
+                <button class="category-dropdown-button">Music</button>
+                <button class="category-dropdown-button">Musical</button>
+                <button class="category-dropdown-button">Mystery</button>
+                <button class="category-dropdown-button">News</button>
+                <button class="category-dropdown-button">Reality-TV</button>
+                <button class="category-dropdown-button">Romance</button>
+                <button class="category-dropdown-button">Sci-Fi</button>
+                <button class="category-dropdown-button">Sport</button>
+                <button class="category-dropdown-button">Thriller</button>
+                <button class="category-dropdown-button">War</button>
+                <button class="category-dropdown-button">Western</button>
+              </div>
+            </div>
+            <div class="waiting-window-container">
+            <img src="static/waiting-logo.gif" class="waiting-logo" alt="Stream IT">
+            </div>
+            <button class="toggle-btn">Voir plus</button>
+          </div>
+        </section>
+    </main>
+
+    <section id="modal">
+      <section id="modal-content" class="modal-content">
+        <article>
+          <div class="modal-header">
+            <div class="technical-datasheet">
+            <h3 id="modal-title" class="titlestyle">Lorem Ipsum</h1>
+              <p class="technical regtext-bold">
+                Year, genre, genre, genre<br>
+                Age restrictions, duration, country, countries<br>
+                ImDB Score : Œ/∏
+              </p>
+              <p id="directors" class="regtext"><em class="regtext-bold">Réalisé par :</em><br>
+                Lo Rem & Ip Sum
+              </p>
+            </div>
+            <div id="modal-poster">
+              <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du film">
+            </div> 
+          </div>
+          <div id="synopsis">
+            <h4 class="synopsis-literal-word">Synopsis</h4>
+            <p id="long-description" class="regtext">
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod arcu at leo fringilla mattis suspendisse tempor molestie primis. 
+              Himenaeos hac maximus fames suscipit bibendum morbi penatibus. Ultrices dictumst feugiat euismod dis cubilia facilisi facilisis potenti viverra. 
+              Volutpat nascetur magnis euismod diam per dignissim. Fusce laoreet tempor montes lectus ornare sit vehicula erat. 
+              Pretium lacus in proin mi egestas consequat leo. Fusce fusce magna varius lobortis penatibus integer, nisl libero libero.
             </p>
           </div>
-          <div id="modal-poster">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="Affiche du film">
-          </div> 
-        </div>
-        <div id="synopsis">
-          <h4 class="synopsis-literal-word">Synopsis</h4>
-          <p id="long-description" class="regtext">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Euismod arcu at leo fringilla mattis suspendisse tempor molestie primis. 
-            Himenaeos hac maximus fames suscipit bibendum morbi penatibus. Ultrices dictumst feugiat euismod dis cubilia facilisi facilisis potenti viverra. 
-            Volutpat nascetur magnis euismod diam per dignissim. Fusce laoreet tempor montes lectus ornare sit vehicula erat. 
-            Pretium lacus in proin mi egestas consequat leo. Fusce fusce magna varius lobortis penatibus integer, nisl libero libero.
+          <h4 class="casting-literal-word">Casting</h4>
+          <p id="casting" class="regtext">
+            Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, sci-fi Id Est Laborum.
           </p>
-        </div>
-        <h4 class="casting-literal-word">Casting</h4>
-        <p id="casting" class="regtext">
-          Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, sci-fi Id Est Laborum.
-        </p>
-        <div class="close-modal">
-        <button id="close-modal">Fermer</button>
-        </div>
-      </article>
+          <div class="close-modal">
+          <button id="close-modal">Fermer</button>
+          </div>
+        </article>
+      </section>
     </section>
-  </section>
 
-  <footer>
-    <p>© 2025 JustStreamIt</p>
-  </footer>
+    <footer>
+      <p>© 2025 JustStreamIt</p>
+    </footer>
 
   </body>
 

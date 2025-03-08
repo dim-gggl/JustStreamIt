@@ -39,9 +39,9 @@ export function renderMovieBox(movie, dataId) {
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
 
-  const titleH3 = document.createElement("h3");
-  titleH3.innerText = movie.title;
-  titleH3.className = "movie-title"
+  const titleH4 = document.createElement("h4");
+  titleH4.innerText = movie.title;
+  titleH4.className = "movie-title"
 
   const detailsBtn = document.createElement("button");
   detailsBtn.classList.add("open-modal");
@@ -53,7 +53,7 @@ export function renderMovieBox(movie, dataId) {
           openModal();
         });
 
-  overlay.appendChild(titleH3);
+  overlay.appendChild(titleH4);
   overlay.appendChild(detailsBtn);
   movieBox.appendChild(img);
   movieBox.appendChild(overlay);
@@ -76,8 +76,8 @@ export function clearContainer(containerElement) {
  */
 export function createGenreSection(categoryName) {
   let sectionContainer = document.createElement("section"); 
-  sectionContainer.id = categoryName.toLowerCase();  
-  sectionContainer.className = "catalogue"; 
+  sectionContainer.classList.add(categoryName.toLowerCase());  
+  sectionContainer.classList.add("catalogue"); 
   document.body.appendChild(sectionContainer);
   let sectionHeaderCleaned = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);  
   let categoryHeader = document.createElement("h2")
@@ -96,8 +96,8 @@ export function createGenreSection(categoryName) {
  */
 export function setCategoryMovies(movies, categoryName) {
   try {
-    let categorySection = document.getElementById(`${categoryName.toLowerCase()}`)
-    let containerElement = document.querySelector(`#${categorySection.id} .movie-container`);
+    let categorySection = document.querySelector(`.${categoryName.toLowerCase()}.catalogue`)
+    let containerElement = categorySection.querySelector(".movie-container");
     if (!containerElement) {
       containerElement = document.createElement("div")
       containerElement.className = "movie-container";
@@ -111,25 +111,36 @@ export function setCategoryMovies(movies, categoryName) {
         }
       });
     }
+    let toggleBtn = containerElement.querySelector(".toggle-btn");
+    if (!toggleBtn) {
+      toggleBtn = document.createElement("button");
+      toggleBtn.className = "toggle-btn";
+      toggleBtn.innerText = "Voir plus"
+      containerElement.append(toggleBtn);
+    };
   } catch {
-    categorySection = createGenreSection(categoryName);
-    setCategoryMovies(movies, categoryName);
+    let categorySection = createGenreSection(categoryName);
+    if (categorySection) {
+      setCategoryMovies(movies, categoryName);
+    } else {
+      console.log("ERREUR lors de la création de la section")
+    }    
   }
 }
 
 /**
  * Populates all dropdown menus for category selection with genre options.
  *
- * For each dropdown container found with the class ".selected-category .dropdown-child",
+ * For each dropdown container found with the class ".selected-category .dropdown-content",
  * this function clears its current content and appends an anchor element for each genre.
  */
 export function setCategoryDropdownButtons(genres) {
-  const dropdownContainers = document.querySelectorAll(".selected-category .dropdown-child");
+  const dropdownContainers = document.querySelectorAll(".selected-category .dropdown-content");
   dropdownContainers.forEach(dropdown => {
     clearContainer(dropdown);
     genres.forEach(genre => {
-      const option = document.createElement("a");
-      option.href = "#";
+      const option = document.createElement("button");
+      option.className = "category-dropdown-button";
       option.textContent = genre.name;
       option.setAttribute("data-genre", genre.name);
       dropdown.appendChild(option);

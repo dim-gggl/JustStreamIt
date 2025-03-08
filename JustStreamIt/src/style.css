@@ -111,191 +111,6 @@
   display: block;
 }
 
-/* Loading overlay screen styles */
-.loader-overlay {
-  position: fixed;
-  z-index: 1;
-  margin: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
-  justify-items: center;
-  justify-content: space-around;
-  background-color: var(--dark-bg);
-  transition-delay: 10s;
-  transition: opacity 6s ease-out; 
-}
-
-/* The container of the logo + the site name */
-.loader-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
-  max-height: 90vh;
-  text-align: center;
-}
-
-.loader-logo-container {
-  position: relative;
-  width: 40vh;
-  height: 40vh;
-}
-
-/* The original JustStreamIt Logo divided in 3 layers */ 
-.loader-logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-}
-
-/* "Stream IT" site Name */
-.loader-title {
-  z-index: 2;
-  top: 0;
-  max-width: 70vh;
-  opacity: 0;
-  filter: var(--neon-logo-mint-img);
-  animation: flashing 8s linear 3 4s;
-}
-
-/* The inner layer of the logo */
-.in {
-  animation: pulse-in 8s ease-in-out 3;
-  opacity: 1;
-}
-
-/* The middle layer of the logo */
-.mid {
-  animation: spin-scale-mid 8s ease-in-out 3;
-  opacity: 1;
-}
-
-/* The outer layer of the logo */
-.out {
-  animation: spin-scale-out 8s ease-in-out 3;
-  opacity: 1;
-}
-
-/* The logo animations */
-/* Spinning and scaling to imitate a camera lens */
-@keyframes pulse-in {
-  0% { transform: scale(1) rotate(0turn); }
-  10% { transform: scale(0.9) rotate(0.9turn); }
-  25% {
-      transform: scale(1.1) rotate(-0.3turn);
-      animation-timing-function: ease-out;
-  }
-  50% {
-      transform: scale(0.9) rotate(-1.1turn);
-      animation-timing-function: ease-out;
-  }
-  75% {
-      transform: scale(0.9) rotate(-1.8turn);
-      animation-timing-function: ease-out;
-  }
-  100% {
-      transform: scale(1) rotate(-1turn);
-      animation-timing-function: ease-out;
-  }
-}
-
-@keyframes spin-scale-mid {
-  0% { transform: scale(1) rotate(0turn); }
-  10% {
-      transform: scale(1) rotate(0.7turn);
-      animation-timing-function: ease-out;
-  }
-  25% {
-      transform: scale(1) rotate(-0.2turn);
-      animation-timing-function: ease-out;
-  }
-  50% {
-      transform: scale(0.9) rotate(-0.9turn);
-      animation-timing-function: ease-out;
-  }
-  75% {
-      transform: scale(1) rotate(-1.5turn);
-      animation-timing-function: ease-out;
-  }
-  100% {
-      transform: scale(1) rotate(0turn);
-      animation-timing-function: ease-out;
-  }
-}
-
-@keyframes spin-scale-out {
-  0% { transform: scale(1) rotate(0turn); }
-  10% {
-      transform: scale(1) rotate(-0.3turn);
-      animation-timing-function: ease;
-  }
-  25% {
-      transform: scale(1) rotate(0.4turn);
-      animation-timing-function: ease-out;
-  }
-  50% {
-      transform: scale(1.1) rotate(0.4turn);
-      animation-timing-function: ease;
-  }
-  75% {
-      transform: scale(1.1) rotate(1turn);
-      animation-timing-function: ease-out;
-  }
-  100% {
-      transform: scale(1) rotate(0turn);
-      animation-timing-function: ease;
-  }
-}
-
-/*  Neon light text effects */
-@keyframes flashing {
-  0% {opacity: 0;}
-  9% {opacity: 0.8;}
-  10% {opacity: 0;}
-  11% {opacity: 0.7;}
-  19% {opacity: 0.6;}
-  20% {opacity: 1;}
-  21% {opacity: 0.8;}
-  32% {opacity: 0.7;}
-  33% {opacity: 0;}
-  34% {opacity: 0.8;}
-  39% {opacity: 0.9;}
-  40% {opacity: 0.2;}
-  41% {opacity: 0.9;}
-  50% {opacity: 0.8;}
-  51% {opacity: 0;}
-  52% {opacity: 0.7;}
-  60% {opacity: 0.6;}
-  61% {opacity: 1;}
-  62% {opacity: 0.8;}
-  68% {opacity: 0.7;}
-  74% {opacity: 0.8;}
-  75% {opacity: 0;}
-  76% {opacity: 0.7;}
-  79% {opacity: 0.8;}
-  80% {opacity: 0.6;}
-  81% {opacity: 1;}
-  82% {opacity: 0.8;}
-  83% {opacity: 0.1;}
-  84% {opacity: 0.8;}
-  89% {opacity: 0.7;}
-  92% {opacity: 0.9;}
-  93% {opacity: 0;}
-  94% {opacity: 0.7;}
-  98% {opacity: 0.8;}
-  99% {opacity: 0.3;}
-  100% {opacity: 0;}
-}
-
 /* Global Styles */
 body {
   width: 100%;
@@ -336,14 +151,14 @@ header {
 }
 
 .header-logo {
-  margin: 0 0 2em auto;
-  max-height: 33vh;
+  margin: auto;
+  max-height: 23vh;
   max-width: 100%;
 }
 
 .site-title-image {
   max-height: 100%;
-  max-width: 60vh;
+  max-width: 40vh;
   margin: 0 auto 2em 0;
   filter: var(--neon-logo-mint-img);
 }
@@ -477,6 +292,10 @@ button:hover {
   margin: 0;
 }
 
+.toggle-btn {
+  display: none;
+}
+
 .movie-container {
   display: flex;
   flex-wrap: wrap;
@@ -516,16 +335,19 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: center;
+  align-content: space-evenly;
   justify-content: center;
   justify-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.overlay h3 {
-  color: var(--dark-mint-ref)
+.overlay h4 {
+  color: var(--dark-mint-ref);
+  text-align: center;
+  font-size: 2.8rem;
 }
+
 .movie-box:hover .overlay {
   opacity: 1;
 }
@@ -541,8 +363,9 @@ button:hover {
 }
 
 .overlay button:hover {
-  background: var(--dark-red);
+  background: var(--dark-red-gradient);
   color: var(--dark-mint-ref);
+  box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
 }
 
 .overlay:hover {
@@ -554,28 +377,34 @@ button:hover {
 .dropdown {
   padding: 0;
   width: fit-content;
-  max-width: 30vh;
+  max-width: 50%;
 }
 
-.category-list {
+.category-list-button {
   font-family: var(--category-font);
-  /* background-color: var(--dark-red); */
-  background: var(--dark-red-gradient);
+  background: linear-gradient(180deg,
+      hsla(177, 45%, 42%, 1) 0%,
+      hsla(179, 46%, 28%, 1) 45%,
+      hsla(181, 49%, 18%, 1) 58%,
+      hsla(197, 84%, 5%, 1) 100%);
   color: #bff6e8;
   font-size: 2rem;
-  padding: 1vh 5vh;
-  margin-left: 7vh;
+  padding: 1rem 3rem;
   margin-bottom: 0;
-  border: none;
   cursor: pointer;
-  border-radius: 45% 51% 30% 24% / 67% 70% 0% 0% ;
+  border: 1px solid var(--warm-yellow);
+  border-radius: 44% 50% 0% 0% / 7% 10% 59% 60%;
   text-align: center;
   text-justify: center;
-  text-shadow: 1px 1px 1px rgba(20, 17, 17, 0.533);
-  width: 25vh;
+  width: 40vh;
+  height: max-content;
 }
 
-.dropdown-child {
+.category-list-button:hover {
+  box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
+}
+
+.dropdown-content {
   display: none;
   position: absolute;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -587,28 +416,38 @@ button:hover {
   transition: opacity 1s ease-in-out;
 }
 
-.dropdown-child a {
+.category-dropdown-button {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: auto;
-  max-width: 100%;
+  width: 15%;
+  border: none;
+  border-radius: 0%;
   font-family: var(--category-font);
-  padding: 1rem;
-  text-decoration: none;
+  margin: 0;
   color: var(--dark-bg);
   font-size: 2rem;
   text-align: center;
   text-justify: center;
-  background-color: #1bbeffaa;
+  background-color: #1bbeffa8;
 }
 
-.dropdown-child a:hover {
-  background-color:#0211178e;
-  color: var(--dark-mint-ref);
+.category-dropdown-button:hover {
+  box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
 }
 
-.dropdown:hover .dropdown-child {
+/* .dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: auto;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  justify-content: baseline;
+  max-width: 100%;
+  opacity: 1;
+} */
+
+.category-list-button:active .dropdown-content {
   display: flex;
   flex-direction: auto;
   flex-wrap: wrap;
@@ -625,7 +464,7 @@ button:hover {
 .waiting-window-container {
   background-color: #010c10c0;
   border: 2px solid hsl(29, 96%, 47%);
-  border-radius: 20px;
+  border-radius: 44% 8% 7% 8% / 0% 45% 52% 30% ;
   display: flex;
   align-content: space-around;
   justify-content: space-around;
@@ -756,6 +595,12 @@ button:hover {
   height: 4rem;
 }
 
+footer {
+  bottom: 0;
+  padding-top: 5rem;
+  margin-top: 5rem;
+}
+
 /* Responsive Design: */
 /* Breaking points and media queries */
 
@@ -810,7 +655,7 @@ button:hover {
     color: var(--dark-bg)
   }
 
-  .category-list {
+  .category-list-button {
     background: var(--warm-yellow-gradient);
   }
 
@@ -822,6 +667,11 @@ button:hover {
 
 /* Tablets */
 @media screen and (max-width: 1024px) {
+  main {
+    margin-bottom: 5rem;
+    overflow-y: auto;
+  }
+
   section {
     padding:0;
     margin: 0;
@@ -860,8 +710,35 @@ button:hover {
     width: 10vh;
   }
   
+  .overlay {
+    background: rgba(0, 0, 0, 0.4);;
+    opacity : 1;
+  }
+
+  .overlay h4 {
+    padding: 3rem;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .overlay:hover {
+    opacity: 1;
+  }
+
   .movie-box {
       width: calc(50% - 20px);
+  }
+
+  .movie-container:not(.expanded) .movie-box:nth-child(n+5) {
+    display:none;
+  }
+
+  .to-define-section .movie-container .toggle-btn {
+    display: none;
+  }
+
+  .toggle-btn {
+    display: block;
   }
 
   #modal {
@@ -936,6 +813,14 @@ button:hover {
     margin: 2em auto;
   }
 
+  .movie-container:not(.expanded) .movie-box:nth-child(n+3) {
+    display:none;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
   #best-movie {
     width: 100%;
     padding: 0;
@@ -970,6 +855,18 @@ button:hover {
     object-fit: cover;
   }
   
+}
+
+@media screen and (max-width: 416) {
+  .section-title, .movie-title, .modal-title, h2, h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .movie-title {
+    font-size: 1.4rem;
+  }
 }
 
 /* @media screen and (max-width: 567px) {

@@ -12,7 +12,7 @@ import {
   renderMovieBox
 } from './dom.js';
 import { initModal, openModal, fillModalContent } from './modal.js';
-import { moviesUrl, sciFiMoviesUrl, biographyMoviesUrl } from './config.js';
+import { moviesUrl, sciFiMoviesUrl, biographyMoviesUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter } from './config.js';
 
 /**
  * Displays the loader overlay by setting its display style to "flex" and its opacity to "1".
@@ -37,8 +37,8 @@ function hideLoader() {
       loader.style.opacity = '0';
       setTimeout(() => {
         loader.style.display = "none";
-      }, 10000);
-    }, 6000);
+      }, 3000);
+    }, 2000);
   }
 }
 
@@ -52,7 +52,7 @@ async function loadCategoryMovies(sectionElement, categoryName, spinnerIsActive 
     showLoader();
   }
   try {
-    const categoryUrl = `${moviesUrl}?genre=${encodeURIComponent(categoryName.toLowerCase())}&sort_by=-avg_vote`;
+    const categoryUrl = moviesUrl + moviesByGenreFilter + categoryName.toLowerCase() + "&" + sortByFilter + imdbScoreFilter;
     const movies = await extractSixMoviesToDisplay(categoryUrl);
     sectionElement.querySelector("h2").innerText = categoryName
     let container = sectionElement.querySelector(".movie-container");
@@ -72,6 +72,10 @@ async function loadCategoryMovies(sectionElement, categoryName, spinnerIsActive 
     console.error(`Erreur lors du chargement de la catégorie ${categoryName}: `, error);
     alert(`Erreur lors du chargement de la catégorie ${categoryName}`);
   }
+  if (sectionElement.classList.contains("to-define-section")) {
+    sectionElement.classList.remove("to-define-section")
+  }
+  sectionElement.classList.add(categoryName.toLowerCase())
   if (spinnerIsActive) {
     hideLoader();
   }
@@ -85,16 +89,25 @@ async function loadCategoryMovies(sectionElement, categoryName, spinnerIsActive 
 function initCategoryDropdowns() {
   const dropdowns = document.querySelectorAll(".selected-category .dropdown");
   dropdowns.forEach(dropdown => {
-    const button = dropdown.querySelector(".category-list");
-    const options = dropdown.querySelectorAll(".dropdown-child a");
+    const button = dropdown.querySelector(".category-list-button");
+    const options = dropdown.querySelectorAll(".category-dropdown-button");
+    const optionsContainer = dropdown.querySelector(".dropdown-content")
     
-    options.forEach(option => {
-      option.addEventListener("click", async (e) => {
+    button.addEventListener("click", async (e) => {
+      e.preventDefault();
+      optionsContainer.style.display = "flex";
+      optionsContainer.style["flex-wrap"] = "wrap";
+      optionsContainer.style.opacity = "1";
+    })
+    options.forEach(btn => {
+      btn.addEventListener("click", async (e) => {
         e.preventDefault();
-        const selectedCategory = option.textContent.trim();
+        optionsContainer.style.display = "none";
+        const selectedCategory = btn.textContent.trim();
         button.textContent = selectedCategory;
         const section = dropdown.closest(".selected-category");
-        await loadCategoryMovies(section, selectedCategory);
+        await loadCategoryMovies(section, selectedCategory, false);
+        initToggleBtns(); 
       });
     });
   });
@@ -107,14 +120,36 @@ function initCategoryDropdowns() {
  * updates its category list button, and loads movies for the default category without activating the spinner.
  */
 async function loadDefaultCategory() {
-  const defaultSection = document.querySelector(".selected-category:not(.user-selected)");
+  const defaultSection = document.querySelector(".selected-category:not(.to-define-section)");
   if (defaultSection) {
-    const button = defaultSection.querySelector(".category-list");
+    const button = defaultSection.querySelector(".category-list-button");
     const defaultCategory = "Comedy";
-    button.textContent = defaultCategory;
+    button.textContent = defaultCategory + "  ▾";
     await loadCategoryMovies(defaultSection, defaultCategory, false);
   }
 }
+
+function initToggleBtns() {
+  let moviesContainers = document.querySelectorAll('.movie-container');
+  moviesContainers.forEach(div => {
+    let toggleBtn = div.querySelector('.toggle-btn');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.className = 'toggle-btn';
+      toggleBtn.innerText = 'Voir plus';
+      div.append(toggleBtn);
+    }
+    toggleBtn.onclick = (e) => {
+      e.preventDefault();
+      div.classList.toggle('expanded');
+      if (div.classList.contains('expanded')) {
+        toggleBtn.innerText = 'Voir moins';
+      } else {
+        toggleBtn.innerText = 'Voir plus';
+      }
+    };
+  });
+};
 
 /**
  * Initializes the application once the DOM content is fully loaded.
@@ -129,10 +164,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Starts with the Best Movie section
   try {
     const bestMoviesData = await getBestMoviesList();
-    const highestScore = bestMoviesData.results[0].imdb_score;
-    const topRatedMovies = bestMoviesData.results.filter(movie => movie.imdb_score === highestScore);
-    const randomIndex = Math.floor(Math.random() * topRatedMovies.length);
-    const bestMovieRef = topRatedMovies[randomIndex];
+    // const highestScore = bestMoviesData.results[0].imdb_score;
+    // const topRatedMovies = bestMoviesData.results.filter(movie => movie.imdb_score === highestScore);
+    // const randomIndex = Math.floor(Math.random() * topRatedMovies.length);
+    const bestMovieRef = bestMoviesData.results[0];
     if (!bestMovieRef || !bestMovieRef.url) {
       throw new Error("Aucun film trouvé pour le meilleur film.");
     }
@@ -175,14 +210,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erreur lors du chargement des genres : ", error);
     alert("Erreur lors du chargement des genres.");
   }
+  // Setting the toggle buttons
+  initToggleBtns();
 
   // Waiting window setting: disappears when a category
   // is selected.
-  const btns = document.querySelectorAll(".to-define-section a");
+  const btns = document.querySelectorAll(".to-define-section .category-dropdown-button");
   const waitingWindow = document.querySelector(".waiting-window-container");
 
-  btns.forEach(a => {
-    a.onclick = (e) => {
+  btns.forEach(btn => {
+    btn.onclick = (e) => {
       e.preventDefault();
       if (waitingWindow) {
         waitingWindow.style.display = "none";
@@ -203,6 +240,6 @@ window.onload = function() {
     loader.style.opacity = '0';
     setTimeout(() => {
        loader.style.display = "none";
-    }, 4000);
-  }, 10000); 
+    }, 2000);
+  }, 3000); 
 };
