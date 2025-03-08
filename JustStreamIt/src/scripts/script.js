@@ -104,7 +104,7 @@ function initCategoryDropdowns() {
         e.preventDefault();
         optionsContainer.style.display = "none";
         const selectedCategory = btn.textContent.trim();
-        button.textContent = selectedCategory;
+        button.textContent = "Autres  ▾";
         const section = dropdown.closest(".selected-category");
         await loadCategoryMovies(section, selectedCategory, false);
         initToggleBtns(); 
