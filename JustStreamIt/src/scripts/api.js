@@ -94,34 +94,37 @@ export async function fetchTheAmountOfPagesRequired(url, numberOfPages) {
 /**
  * Extracts movie IDs from an object containing a list of movies.
  */
-function extractMoviesIdsFromData(dataList) {
-    const moviesIDs = [];
-    try {
-        for (const film of dataList.results) {
-            moviesIDs.push(film.id);
-        }
-    } catch (error) {
-        console.log(`Erreur lors de l'extraction des ID : ${error}`);
-    }
-    return moviesIDs;
-}
+
+function extractMoviesIdsFromData(pagesData) {
+    let ids = [];
+    pagesData.forEach(page => {
+      if (page.results && Array.isArray(page.results)) {
+        page.results.forEach(movie => {
+          if (movie && movie.id != null) {
+            ids.push(movie.id.toString());
+          }
+        });
+      }
+    });
+    return ids;
+  }
 
 /**
  * Retrieves movie details by their IDs and constructs an array of movie objects.
  *
  * For each provided ID, fetches the movie details and creates a movie model using createMovieModel.
  */
-async function getMoviesFromIDs(sciFiMoviesIDs, sciFiMoviesList = []) {
-    for (const id of sciFiMoviesIDs) {
+async function getMoviesFromIDs(moviesIDs, moviesList = []) {
+    for (const id of moviesIDs) {
         try {
             const filmDetails = await fetchData(moviesUrl + id);
-            const sciFiMovie = createMovieModel(filmDetails);
-            sciFiMoviesList.push(sciFiMovie);
+            const movie = createMovieModel(filmDetails);
+            moviesList.push(movie);
         } catch (error) {
             console.log(`Erreur lors du listing des films de Science-Fiction : ${error}`);
         }
     }
-    return sciFiMoviesList;
+    return moviesList;
 }
 
 /**

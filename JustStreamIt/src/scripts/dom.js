@@ -76,7 +76,7 @@ export function clearContainer(containerElement) {
  */
 export function createGenreSection(categoryName) {
   let sectionContainer = document.createElement("section"); 
-  sectionContainer.classList.add(categoryName.toLowerCase());  
+  sectionContainer.classList.add(categoryName.toLowerCase().replace(/ /g, '-'));  
   sectionContainer.classList.add("catalogue"); 
   document.body.appendChild(sectionContainer);
   let sectionHeaderCleaned = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);  
@@ -96,7 +96,7 @@ export function createGenreSection(categoryName) {
  */
 export function setCategoryMovies(movies, categoryName) {
   try {
-    let categorySection = document.querySelector(`.${categoryName.toLowerCase()}.catalogue`)
+    let categorySection = document.querySelector(`.${categoryName.toLowerCase().replace(/ /g, '-')}.catalogue`)
     let containerElement = categorySection.querySelector(".movie-container");
     if (!containerElement) {
       containerElement = document.createElement("div")

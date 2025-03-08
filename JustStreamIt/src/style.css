@@ -151,7 +151,7 @@ header {
 }
 
 .header-logo {
-  margin: auto;
+  margin: 0 0 2em auto;
   max-height: 23vh;
   max-width: 100%;
 }
@@ -197,10 +197,6 @@ h3 {
 /* The litteral "section" tag container */
 #best-movie { 
   display: block;
-  min-width: 60%;
-  max-width: 90%; 
-  padding: 4em;
-  margin: 0 12vh;
 }
 
 #best-movie-title {
@@ -271,7 +267,6 @@ h3 {
 button {
   width: 10vh;
   height: 5vh;
-  color: var(--dark-mint-ref);
   font-weight: bold;
   background: var(--dark-red);
   border-radius: 25px;
@@ -282,8 +277,7 @@ button {
 button:hover {
   cursor: pointer;
   transition-duration: 0.3s;
-  box-shadow: inset 5px 5px 14px -10px var(--black),
-              inset 6px 9px 34px -29px var(--black);
+  box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
   transform: perspective(2px) translateZ(0);
 }
 
@@ -382,29 +376,23 @@ button:hover {
 
 .category-list-button {
   font-family: var(--category-font);
-  background-color: linear-gradient(180deg,
-      hsla(0, 0%, 74%, 1) 0%,
-      hsla(0, 0%, 84%, 1) 25% 
-      hsla(0, 0%, 90%, 1) 43%, 
-      hsla(0, 0%, 94%, 1) 57%, 
-      hsla(0, 0%, 100%, 1) 80%);
-  background: linear-gradient(180deg,
-  hsla(0, 0%, 74%, 1) 0%,
-  hsla(0, 0%, 84%, 1) 25% 
-  hsla(0, 0%, 90%, 1) 43%, 
-  hsla(0, 0%, 94%, 1) 57%, 
-  hsla(0, 0%, 100%, 1) 80%);
-  color: var(--dark-bg);
   font-size: 2rem;
+  text-align: center;
+  text-justify: center;
   padding: 1rem 3rem;
   margin-bottom: 0;
+  width: 40vh;
+  height: max-content;
+  color: var(--dark-bg);
+  background: linear-gradient(180deg,
+              hsla(0, 0%, 74%, 1) 0%,
+              hsla(0, 0%, 84%, 1) 25% 
+              hsla(0, 0%, 90%, 1) 43%, 
+              hsla(0, 0%, 94%, 1) 57%, 
+              hsla(0, 0%, 100%, 1) 80%);
   cursor: pointer;
   border: 1px solid var(--warm-yellow);
   border-radius: 10px;
-  text-align: center;
-  text-justify: center;
-  width: 40vh;
-  height: max-content;
 }
 
 .category-list-button:hover {

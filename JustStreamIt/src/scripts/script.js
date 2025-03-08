@@ -2,7 +2,10 @@ import {
   getBestMoviesList, 
   bestMovieFromUrl, 
   extractSixMoviesToDisplay,
-  getAllGenres} from './api.js';
+  fetchTheAmountOfPagesRequired,
+  extractMoviesIdsFromData,
+  getAllGenres,
+  getMoviesFromIDs} from './api.js';
 import { createMovieModel } from './models.js';
 import {
   setBestMovie,
@@ -12,7 +15,7 @@ import {
   renderMovieBox
 } from './dom.js';
 import { initModal, openModal, fillModalContent } from './modal.js';
-import { moviesUrl, sciFiMoviesUrl, biographyMoviesUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter } from './config.js';
+import { moviesUrl, sciFiMoviesUrl, biographyMoviesUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter, bestFrenchMoviesFromThe90sUrl } from './config.js';
 
 /**
  * Displays the loader overlay by setting its display style to "flex" and its opacity to "1".
@@ -164,9 +167,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Starts with the Best Movie section
   try {
     const bestMoviesData = await getBestMoviesList();
-    // const highestScore = bestMoviesData.results[0].imdb_score;
-    // const topRatedMovies = bestMoviesData.results.filter(movie => movie.imdb_score === highestScore);
-    // const randomIndex = Math.floor(Math.random() * topRatedMovies.length);
     const bestMovieRef = bestMoviesData.results[0];
     if (!bestMovieRef || !bestMovieRef.url) {
       throw new Error("Aucun film trouvé pour le meilleur film.");
@@ -186,6 +186,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erreur lors du chargement du meilleur film : ", error);
     alert("Erreur lors du chargement du meilleur film.");
   }
+
+  // Best French Movies from the 90s
+  try {
+    let frMoviesRawData = await fetchTheAmountOfPagesRequired(bestFrenchMoviesFromThe90sUrl, 2);
+    let frMoviesIDs = extractMoviesIdsFromData(frMoviesRawData);
+    let fr90sMovies = await getMoviesFromIDs(frMoviesIDs);
+    console.log(`Titres des films: \n\t1.\t${fr90sMovies[0].title}\n\t2.\t${fr90sMovies[1].title}`)
+    let sixFrBest90sMovies = fr90sMovies.slice(0, 6);
+    console.log(`Titres des films: \n\t3.\t${sixFrBest90sMovies[2].title}\n\t4.\t${sixFrBest90sMovies[3].title}`)
+    setCategoryMovies(sixFrBest90sMovies, "best-french-movies-from-the-90s");
+  } catch (error) {
+    console.error("ERREUR lors du chargement des meilleurs films français des 90s", error)
+  }
+    
 
   // Sci-Fi & Biography Sections
   try {
@@ -234,12 +248,12 @@ document.addEventListener("DOMContentLoaded", async () => {
  * Applies a fading effect by setting the opacity to "0" after a delay,
  * and then setting the display to "none" after an additional delay.
  */
-window.onload = function() {
-  const loader = document.getElementById("loader-overlay");
-  setTimeout(() => {
-    loader.style.opacity = '0';
-    setTimeout(() => {
-       loader.style.display = "none";
-    }, 2000);
-  }, 3000); 
-};
+// window.onload = function() {
+//   const loader = document.getElementById("loader-overlay");
+//   setTimeout(() => {
+//     loader.style.opacity = '0';
+//     setTimeout(() => {
+//        loader.style.display = "none";
+//     }, 2000);
+//   }, 3000); 
+// };
