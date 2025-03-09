@@ -15,7 +15,7 @@ import {
   renderMovieBox
 } from './dom.js';
 import { initModal, openModal, fillModalContent } from './modal.js';
-import { moviesUrl, sciFiMoviesUrl, biographyMoviesUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter, bestFrenchMoviesFromThe90sUrl } from './config.js';
+import { moviesUrl, sciFiMoviesUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter, bestFrenchMoviesFromThe90sUrl, bestImdbMoviesUrl } from './config.js';
 
 /**
  * Displays the loader overlay by setting its display style to "flex" and its opacity to "1".
@@ -159,7 +159,7 @@ function initToggleBtns() {
  *
  * - Fetching and displaying the best movie.
  * - Setting up the modal for the best movie.
- * - Loading movies for Sci-Fi and Biography categories.
+ * - Loading movies for Best French Movies From the 90s & Sci-Fi categories.
  * - Initializing modal functionality.
  * - Fetching genres and initializing category dropdown menus.
  */
@@ -187,26 +187,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     alert("Erreur lors du chargement du meilleur film.");
   }
 
+  // Setting the Other Best Movies Section
+  try {
+    let bestMoviesRawData = await fetchTheAmountOfPagesRequired(bestImdbMoviesUrl, 2);
+    let bestMoviesIds = extractMoviesIdsFromData(bestMoviesRawData);
+    let bestMoviesSelection = await getMoviesFromIDs(bestMoviesIds);
+    console.log(`Titres des films: \n\t1.\t${bestMoviesSelection[0].title}\n\t2.\t${bestMoviesSelection[1].title}`)
+    let sixBestMovies = bestMoviesSelection.slice(1, 7);
+    console.log(`Titres des films: \n\t3.\t${sixBestMovies[2].title}\n\t4.\t${sixBestMovies[3].title}`)
+    setCategoryMovies(sixBestMovies, "other-best-movies");
+  } catch (error) {
+    console.error("\t~~~~|ERREUR|~~~~\nErreur lors du chargement des autres meilleurs films IMDB\n\t", error)
+  }
+
   // Best French Movies from the 90s
   try {
     let frMoviesRawData = await fetchTheAmountOfPagesRequired(bestFrenchMoviesFromThe90sUrl, 2);
     let frMoviesIDs = extractMoviesIdsFromData(frMoviesRawData);
     let fr90sMovies = await getMoviesFromIDs(frMoviesIDs);
-    console.log(`Titres des films: \n\t1.\t${fr90sMovies[0].title}\n\t2.\t${fr90sMovies[1].title}`)
     let sixFrBest90sMovies = fr90sMovies.slice(0, 6);
-    console.log(`Titres des films: \n\t3.\t${sixFrBest90sMovies[2].title}\n\t4.\t${sixFrBest90sMovies[3].title}`)
     setCategoryMovies(sixFrBest90sMovies, "best-french-movies-from-the-90s");
   } catch (error) {
     console.error("ERREUR lors du chargement des meilleurs films français des 90s", error)
   }
     
-
-  // Sci-Fi & Biography Sections
+  // Sci-Fi Section
   try {
     const sciFiMovies = await extractSixMoviesToDisplay(sciFiMoviesUrl);
-    const biographyMovies = await extractSixMoviesToDisplay(biographyMoviesUrl);
     setCategoryMovies(sciFiMovies, "sci-fi");
-    setCategoryMovies(biographyMovies, "biography");
   } catch (error) {
     console.error("Erreur lors du chargement des films par catégorie : ", error);
     alert("Erreur lors du chargement des films par catégorie.");

@@ -1,4 +1,4 @@
-import { moviesUrl, genresUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter } from "./config.js"; 
+import { moviesUrl, genresUrl, moviesByGenreFilter, sortByFilter, imdbScoreFilter, bestImdbMoviesUrl } from "./config.js"; 
 import { createMovieModel } from "./models.js"; 
 
 /**
@@ -23,8 +23,7 @@ export async function fetchData(url) {
  * Uses the base movies URL with a query parameter for sorting.
  */
 export async function getBestMoviesList() {
-    const url = `${moviesUrl}?sort_by=-imdb_score`;
-    const data = await fetchData(url);
+    const data = await fetchData(bestImdbMoviesUrl);
     if (!data || !data.results || data.results.length === 0) {
         throw new Error("Aucun film trouvé.");
     }

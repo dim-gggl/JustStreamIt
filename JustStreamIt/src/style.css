@@ -268,10 +268,11 @@ button {
   width: 10vh;
   height: 5vh;
   font-weight: bold;
+  border-radius: 15px;
+  padding: auto;
+  text-align: center;
   background: var(--dark-red);
-  border-radius: 25px;
-  padding: 2px 4px;
-  margin: 2em auto;
+  color: var(--dark-mint-ref);
 }
 
 button:hover {
@@ -279,6 +280,11 @@ button:hover {
   transition-duration: 0.3s;
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
   transform: perspective(2px) translateZ(0);
+}
+
+.open-modal {
+  color: var(--dark-mint-ref);
+  background: var(--dark-red-gradient);
 }
 
 /* Catalogue Sections: sections displaying several movies to select */
@@ -379,17 +385,22 @@ button:hover {
   font-size: 2rem;
   text-align: center;
   text-justify: center;
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
   margin-bottom: 0;
   width: 40vh;
   height: max-content;
   color: var(--dark-bg);
-  background: linear-gradient(180deg,
-              hsla(0, 0%, 74%, 1) 0%,
-              hsla(0, 0%, 84%, 1) 25% 
-              hsla(0, 0%, 90%, 1) 43%, 
-              hsla(0, 0%, 94%, 1) 57%, 
-              hsla(0, 0%, 100%, 1) 80%);
+  background: linear-gradient(180deg, 
+      hsla(0, 0%, 83%, 1) 1%, 
+      hsla(187, 4%, 56%, 1) 47%, 
+      hsla(192, 4%, 51%, 1) 55%, 
+      hsla(190, 6%, 43%, 1) 63%, 
+      hsla(192, 8%, 35%, 1) 73%, 
+      hsla(195, 10%, 31%, 1) 78%, 
+      hsla(197, 14%, 25%, 1) 85%, 
+      hsla(198, 20%, 20%, 1) 91%, 
+      hsla(196, 31%, 14%, 1) 96%, 
+      hsla(197, 86%, 6%, 1) 100%);
   cursor: pointer;
   border: 1px solid var(--warm-yellow);
   border-radius: 10px;
@@ -734,6 +745,9 @@ footer {
 
   .toggle-btn {
     display: block;
+    width: 18vh;
+    margin: auto;
+    padding: auto;
   }
 
   #modal {
