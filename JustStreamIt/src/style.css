@@ -386,15 +386,17 @@ button:hover {
   text-align: center;
   text-justify: center;
   padding: 1rem 3rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   width: 40vh;
   height: max-content;
   color: var(--dark-bg);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 31%, rgba(233,234,235,1) 44%, rgba(196,199,201,1) 60%, rgba(183,187,189,1) 67%, rgba(168,173,175,1) 73%, rgba(150,155,158,1) 77%, rgba(136,142,145,1) 80%, rgba(122,129,132,1) 83%, rgba(81,91,95,1) 90%, rgba(51,63,68,1) 95%, rgba(2,17,23,1) 100%);
+  background: linear-gradient(180deg, rgb(255, 176, 176) 31%, rgba(255,176,176,1) 44%, rgba(255,176,176,1) 60%, rgba(255,176,176,1) 67%, rgba(255,176,176,1) 73%, rgba(255,176,176,1) 77%, rgba(255,176,176,1) 80%, rgba(255,176,176,1) 83%, rgb(162, 110, 110) 90%, rgba(255,176,176,1) 95%, #704d4dc4 100%);
   cursor: pointer;
   border: 1px solid var(--warm-yellow);
   border-radius: 10px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0px -2px -4px 0px, rgba(45, 35, 66, 0.3) 0px -7px -13px 3px, rgb(214, 214, 231) 0px 3px 0px 0px inset;
 }
+
 
 .category-list-button:hover {
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
@@ -426,7 +428,7 @@ button:hover {
   font-size: 2rem;
   justify-content: space-around;
   align-content: space-around;
-  background-color: #fc103789;
+  background-color: #fc1037c5;
 }
 
 .category-dropdown-button:hover {
@@ -636,6 +638,12 @@ footer {
     text-shadow: none;
   }
 
+  .category-list-button {
+    color: var(--light-bg);
+    background: linear-gradient(180deg, rgb(73, 18, 18) 31%, rgba(73, 18, 18,1) 44%, rgba(73, 18, 18,1) 60%, rgba(73, 18, 18,1) 67%, rgba(73, 18, 18,1) 73%, rgba(73, 18, 18,1) 77%, rgba(73, 18, 18,1) 80%, rgba(73, 18, 18,1) 83%, rgb(36, 8, 8) 90%, rgb(26, 6, 6) 95%, rgba(6, 1, 1, 0.769) 100%);
+    box-shadow: rgba(45, 35, 66, 0.4) 0px -2px -4px 0px, rgba(45, 35, 66, 0.3) 0px -7px -13px 3px, rgb(214, 214, 231) 0px 3px 0px 0px inset;
+  }
+
   #modal-content {
     color: var(--dark-bg);
     background-color: var(--light-bg);
@@ -649,10 +657,6 @@ footer {
   button {
     background-color: var(--light-red);
     color: var(--dark-bg)
-  }
-
-  .category-list-button {
-    background: var(--warm-yellow-gradient);
   }
 
   .waiting-window-container {
@@ -741,9 +745,13 @@ footer {
 
   .toggle-btn {
     display: block;
-    width: 18vh;
-    margin: auto;
+    width: 15rem;
+    margin: 2rem auto 4rem auto;
     padding: auto;
+    color: var(--light-bg);
+    background: linear-gradient(180deg, rgb(162, 15, 47) 31%, rgba(162, 15, 47) 44%, rgba(162, 15, 47) 60%, rgba(162, 15, 47) 67%, rgba(162, 15, 47) 73%, rgba(162, 15, 47) 77%, rgba(162, 15, 47) 80%, rgba(162, 15, 47) 83%, rgb(36, 8, 8) 90%, rgb(26, 6, 6) 95%, rgba(6, 1, 1, 0.769) 100%);
+    box-shadow: rgba(45, 35, 66, 0.4) 0px -2px -4px 0px, rgba(45, 35, 66, 0.3) 0px -7px -13px 3px, rgb(214, 214, 231) 0px 3px 0px 0px inset;
+
   }
 
   #modal {
