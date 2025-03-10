@@ -232,6 +232,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Erreur lors du chargement des genres : ", error);
     alert("Erreur lors du chargement des genres.");
   }
+
+  // Fermeture du menu dropdown
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll(".dropdown-content").forEach((dropdown) => {
+      if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  });
+  
   // Setting the toggle buttons
   initToggleBtns();
 

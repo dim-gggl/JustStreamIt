@@ -385,22 +385,12 @@ button:hover {
   font-size: 2rem;
   text-align: center;
   text-justify: center;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   margin-bottom: 0;
   width: 40vh;
   height: max-content;
   color: var(--dark-bg);
-  background: linear-gradient(180deg, 
-      hsla(0, 0%, 83%, 1) 1%, 
-      hsla(187, 4%, 56%, 1) 47%, 
-      hsla(192, 4%, 51%, 1) 55%, 
-      hsla(190, 6%, 43%, 1) 63%, 
-      hsla(192, 8%, 35%, 1) 73%, 
-      hsla(195, 10%, 31%, 1) 78%, 
-      hsla(197, 14%, 25%, 1) 85%, 
-      hsla(198, 20%, 20%, 1) 91%, 
-      hsla(196, 31%, 14%, 1) 96%, 
-      hsla(197, 86%, 6%, 1) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 31%, rgba(233,234,235,1) 44%, rgba(196,199,201,1) 60%, rgba(183,187,189,1) 67%, rgba(168,173,175,1) 73%, rgba(150,155,158,1) 77%, rgba(136,142,145,1) 80%, rgba(122,129,132,1) 83%, rgba(81,91,95,1) 90%, rgba(51,63,68,1) 95%, rgba(2,17,23,1) 100%);
   cursor: pointer;
   border: 1px solid var(--warm-yellow);
   border-radius: 10px;
@@ -432,11 +422,11 @@ button:hover {
   border-radius: 0%;
   font-family: var(--category-font);
   margin: 0;
-  color: var(--dark-bg);
+  color: var(--dark-mint-ref);
   font-size: 2rem;
-  text-align: center;
-  text-justify: center;
-  background-color: #1bbeffa8;
+  justify-content: space-around;
+  align-content: space-around;
+  background-color: #fc103789;
 }
 
 .category-dropdown-button:hover {
@@ -710,6 +700,12 @@ footer {
 
   .best-description {
     text-align: justify;
+  }
+
+  .category-dropdown-button {
+    min-width: fit-content;
+    font-size: 1.2rem;
+    font-family: var(--font-family);
   }
 
   #close-modal {
