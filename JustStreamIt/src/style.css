@@ -5,7 +5,8 @@
     
   /* Global settings */
   :root {
-    --dark-bg: #021117;
+    /* --dark-bg: #021117; */
+    --dark-bg: #000a0d;
     --light-bg: #dffff7;
     --dark-red: #7e0000;
     --warm-yellow: #E47846;
@@ -185,7 +186,7 @@ h3 {
   font-family: var(--category-font);
   font-weight: 400;
   font-style: normal;
-  margin-left: 2rem;
+  margin: 3rem 0 0 2rem;
 }
 
 /* Best Movie Section */
@@ -231,8 +232,8 @@ h3 {
   flex-wrap: wrap;
   justify-items: left;
   padding: 4rem;
-  border: 1px solid #8D80AD;
-  border-radius: 13px;
+  border: 2px solid #78fbc0e1;
+  border-radius: 45px;
 
 }
 
@@ -271,20 +272,21 @@ button {
   border-radius: 15px;
   padding: auto;
   text-align: center;
-  background: var(--dark-red);
-  color: var(--dark-mint-ref);
+  color: var(--dark-bg);
+  background: linear-gradient(180deg, rgba(124,31,31,0.84) 0%,rgba(124,31,31,1) 10%,rgba(173,20,0,1) 21%,rgba(219,47,0,1) 56%,rgba(255,67,0,1) 83%,rgba(255,67,0,1) 100%);
+  transition: 0.4s ease;
 }
 
 button:hover {
   cursor: pointer;
-  transition-duration: 0.3s;
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
   transform: perspective(2px) translateZ(0);
 }
 
 .open-modal {
+  /* color: var(--dark-mint-ref); */
   color: var(--dark-mint-ref);
-  background: var(--dark-red-gradient);
+  background: linear-gradient(180deg, rgba(124,31,31,0.84) 0%,rgba(124,31,31,1) 10%,rgba(173,20,0,1) 21%,rgba(219,47,0,1) 56%,rgba(255,67,0,1) 83%,rgba(255,67,0,1) 100%);
 }
 
 /* Catalogue Sections: sections displaying several movies to select */
@@ -339,7 +341,7 @@ button:hover {
   justify-content: center;
   justify-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .overlay h4 {
@@ -353,18 +355,16 @@ button:hover {
 }
 
 .overlay button {
-  background: var(--dark-red);
+  background: var(--dark-red-gradient);
   color: var(--dark-mint-ref);
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-  transition: background 0.3s ease;
+  transition: 0.4s ease;
 }
 
 .overlay button:hover {
-  background: var(--dark-red-gradient);
-  color: var(--dark-mint-ref);
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
 }
 
@@ -390,7 +390,7 @@ button:hover {
   width: 40vh;
   height: max-content;
   color: var(--dark-bg);
-  background: linear-gradient(180deg, rgb(255, 176, 176) 31%, rgba(255,176,176,1) 44%, rgba(255,176,176,1) 60%, rgba(255,176,176,1) 67%, rgba(255,176,176,1) 73%, rgba(255,176,176,1) 77%, rgba(255,176,176,1) 80%, rgba(255,176,176,1) 83%, rgb(162, 110, 110) 90%, rgba(255,176,176,1) 95%, #704d4dc4 100%);
+  background: linear-gradient(180deg, rgba(124,31,31,0.84) 0%,rgba(124,31,31,1) 10%,rgba(173,20,0,1) 21%,rgba(219,47,0,1) 56%,rgba(255,67,0,1) 83%,rgba(255,67,0,1) 100%);
   cursor: pointer;
   border: 1px solid var(--warm-yellow);
   border-radius: 10px;
@@ -399,6 +399,8 @@ button:hover {
 
 
 .category-list-button:hover {
+  color: var(--dark-mint-ref);
+  background: linear-gradient(180deg, rgba(96, 24, 24, 0.84) 0%,rgb(97, 24, 24) 10%,rgb(96, 33, 25) 21%,rgb(96, 37, 20) 56%,rgba(96,37,20,1) 83%,rgba(96,37,20,1) 100%);
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
 }
 
@@ -411,7 +413,7 @@ button:hover {
   margin-bottom: 5vh;
   overflow-y: scroll;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: 1s ease;
 }
 
 .category-dropdown-button {
@@ -424,36 +426,17 @@ button:hover {
   border-radius: 0%;
   font-family: var(--category-font);
   margin: 0;
-  color: var(--dark-mint-ref);
+  color: var(--dark-bg);
   font-size: 2rem;
   justify-content: space-around;
   align-content: space-around;
-  background-color: #fc1037c5;
+  background: #fc4310ea;
 }
 
 .category-dropdown-button:hover {
+  background: #cc2d00;
   box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
 }
-
-/* .dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: auto;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  justify-content: baseline;
-  max-width: 100%;
-  opacity: 1;
-} */
-
-/* .category-list-button:active .dropdown-content {
-  display: flex;
-  flex-direction: auto;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  justify-content: baseline;
-  max-width: 100%;
-  opacity: 1;
-} */
 
 .to-define-section {
   display: block;
@@ -488,17 +471,20 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.781);
 }
 
 #modal-content {
   background: var(--dark-bg);
   color: var(--dark-mint-ref);
-  margin: auto;
-  padding: 3em;
-  border:1.5px solid #7d56ff;
+  margin: 3rem 5rem auto 5rem;
+  padding: 5rem;
+  border: 1.5px solid #8864fe;
+  border-radius: 20%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
   box-shadow: var(--shadow-box);
   max-height: 100%; 
   overflow-x: auto;
@@ -672,6 +658,18 @@ footer {
     overflow-y: auto;
   }
 
+  h1 {
+    font-size: 4rem;
+  }
+  
+  h2 {
+    font-size: 2.8rem;
+  }
+  
+  h3 {
+    font-size: 2.5rem;
+  }
+
   section {
     padding:0;
     margin: 0;
@@ -693,6 +691,10 @@ footer {
     text-align: center;
   }
 
+  .best-movie-container {
+    border-radius: 0;
+  }
+
   .best-movie-poster, #best-movie-img {
     width: 100%;
   }
@@ -710,6 +712,10 @@ footer {
     min-width: fit-content;
     font-size: 1.2rem;
     font-family: var(--font-family);
+  }
+
+  #modal-content {
+    border-radius: 0;
   }
 
   #close-modal {
@@ -746,12 +752,18 @@ footer {
   .toggle-btn {
     display: block;
     width: 15rem;
-    margin: 2rem auto 4rem auto;
+    height: 4rem;
+    margin: 2rem auto 5rem auto;
     padding: auto;
     color: var(--light-bg);
-    background: linear-gradient(180deg, rgb(162, 15, 47) 31%, rgba(162, 15, 47) 44%, rgba(162, 15, 47) 60%, rgba(162, 15, 47) 67%, rgba(162, 15, 47) 73%, rgba(162, 15, 47) 77%, rgba(162, 15, 47) 80%, rgba(162, 15, 47) 83%, rgb(36, 8, 8) 90%, rgb(26, 6, 6) 95%, rgba(6, 1, 1, 0.769) 100%);
+    background: linear-gradient(180deg, rgba(124,31,31,0.84) 0%,rgba(124,31,31,1) 10%,rgba(173,20,0,1) 21%,rgba(219,47,0,1) 56%,rgba(255,67,0,1) 83%,rgba(255,67,0,1) 100%);
     box-shadow: rgba(45, 35, 66, 0.4) 0px -2px -4px 0px, rgba(45, 35, 66, 0.3) 0px -7px -13px 3px, rgb(214, 214, 231) 0px 3px 0px 0px inset;
+    transition: 0.4s ease;
+  }
 
+  .toggle-btn:hover, .toggle-btn:active, .toggle-btn::after {
+    background: #661a05ea;
+    box-shadow: inset 8px 9px 14px -5px rgba(0,0,0,0.77);
   }
 
   #modal {
