@@ -26,10 +26,11 @@ export function closeModal() {
  */
 export function initModal() {
   const modal = document.getElementById("modal");
-  const closeButton = document.getElementById("close-modal");
-
-  if (closeButton) {
-    closeButton.addEventListener("click", closeModal);
+  const closeButtons = document.querySelectorAll(".close-modal button");
+  if (closeButtons.length > 0) { 
+    closeButtons.forEach(closeButton => {
+      closeButton.addEventListener("click", closeModal);
+    });
   }
 
   window.addEventListener("click", (event) => {
@@ -37,6 +38,10 @@ export function initModal() {
       closeModal();
     }
   });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
 }
 
 /**

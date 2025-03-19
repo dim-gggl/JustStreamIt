@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>streamIT</title>
+  <title>Stream IT</title>
   <link rel="stylesheet" href="style.css">
-  <script type="module" defer src="scripts/script.js"></script>
+  <script type="module" src="scripts/script.js"></script>
 </head>
+
   <body>
     <header>
       <img src="static/static-logo.png" class="header-logo dark-theme" alt="Logo de JustStreamIt">
@@ -187,7 +188,7 @@
               <button class="category-dropdown-button">Adult</button>
               <button class="category-dropdown-button">Adventure</button>
               <button class="category-dropdown-button">Sci-Fi</button>
-              <button class="category-dropdown-button">Biography<buttona>
+              <button class="category-dropdown-button">Biography</button>
               <button class="category-dropdown-button">Comedy</button>
               <button class="category-dropdown-button">Crime</button>
               <button class="category-dropdown-button">Documentary</button>
@@ -257,17 +258,21 @@
     </main>
 
     <section id="modal">
-      <section id="modal-content" class="modal-content">
+      <div id="modal-content" class="modal-content">
         <article>
           <div class="modal-header">
+            <div class="close-modal cross-btn-container">
+              <button class="cross-btn" aria-label="Fermer la fenêtre">X</button>
+            </div>
             <div class="technical-datasheet">
-            <h3 id="modal-title" class="titlestyle">Lorem Ipsum</h1>
+              <h3 id="modal-title" class="titlestyle">Lorem Ipsum</h3>
               <p class="technical regtext-bold">
                 Year, genre, genre, genre<br>
                 Age restrictions, duration, country, countries<br>
-                ImDB Score : Œ/∏
+                IMDb Score : x.x
               </p>
-              <p id="directors" class="regtext"><em class="regtext-bold">Réalisé par :</em><br>
+              <p id="directors" class="regtext">
+                <em class="regtext-bold">Réalisé par :</em><br>
                 Lo Rem & Ip Sum
               </p>
             </div>
@@ -285,18 +290,18 @@
             </p>
           </div>
           <h4 class="casting-literal-word">Casting</h4>
-          <p id="casting" class="regtext">
-            Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, sci-fi Id Est Laborum.
-          </p>
-          <div class="close-modal">
-          <button id="close-modal">Fermer</button>
+            <p id="casting" class="regtext">
+              Lorem Ipsum, Dolor Sit, Amet Consectetur, Adipiscing Elit, Sed Do Eiusmod, Tempor Incididunt, Ut Labore Et, Dolore Magna Aliqua, Ut Enim Ad Minim, Veniam, Quis Nostrud, Exercitation Ullamco, Laboris Nisi Ut Aliquip, Ex Ea Commodo, Consequat, Duis Aute Irure, Dolor In Reprehenderit, In Voluptate Velit, Esse Cillum, Dolore Eu Fugiat, Nulla Pariatur, Excepteur, Sint Occaecat, Cupidatat Non Proident, Sunt In Culpa, Qui Officia, Deserunt Mollit, sci-fi Id Est Laborum.
+            </p>
+          <div class="close-modal desktop">
+            <button id="close-modal" class="desktop">Fermer</button>
           </div>
         </article>
-      </section>
+      </div>
     </section>
 
     <footer>
-      <p>© 2025 JustStreamIt</p>
+      <p>2025 Stream IT</p>
     </footer>
 
   </body>

@@ -283,6 +283,16 @@ button:hover {
   transform: perspective(2px) translateZ(0);
 }
 
+.cross-btn-container {
+  display:  none;
+}
+
+.cross-btn {
+  display: none;
+  width: 10px;
+  height: 10px;
+}
+
 .open-modal {
   /* color: var(--dark-mint-ref); */
   color: var(--dark-mint-ref);
@@ -397,7 +407,6 @@ button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0px -2px -4px 0px, rgba(45, 35, 66, 0.3) 0px -7px -13px 3px, rgb(214, 214, 231) 0px 3px 0px 0px inset;
 }
 
-
 .category-list-button:hover {
   color: var(--dark-mint-ref);
   background: linear-gradient(180deg, rgba(96, 24, 24, 0.84) 0%,rgb(97, 24, 24) 10%,rgb(96, 33, 25) 21%,rgb(96, 37, 20) 56%,rgba(96,37,20,1) 83%,rgba(96,37,20,1) 100%);
@@ -442,7 +451,7 @@ button:hover {
   display: block;
 }
 
-.waiting-window-container {
+/* .waiting-window-container {
   background-color: #010c10c0;
   border: 2px solid hsl(29, 96%, 47%);
   border-radius: 15% 25% 2% 47% / 0% 48% 0% 0%  ;
@@ -451,13 +460,13 @@ button:hover {
   justify-content: space-around;
   width: 100%;
   min-height: 65vh;
-}
+} */
 
-.waiting-logo {
+/* .waiting-logo {
   margin: auto;
   max-width: 30vh;
   aspect-ratio: 1.11 / 1;
-}
+} */
 
 /* Modal Styles */
 #modal {
@@ -492,11 +501,12 @@ button:hover {
 
 .modal-header {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
   max-height: fit-content;
+  
 }
 
 #modal-title {
@@ -512,8 +522,7 @@ button:hover {
 }
 
 .technical-datasheet {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
   text-align: left;
 }
 
@@ -544,7 +553,7 @@ button:hover {
   justify-self: right;
   padding: 0%;
   max-width: 100%;
-  min-width: 30vh;
+  border-radius: 5px;
 }
 
 #long-description, #casting {
@@ -577,6 +586,10 @@ button:hover {
   font-weight: bold;
   width: 10rem;
   height: 4rem;
+}
+
+.cross-btn-container, .cross-btn {
+  display: none;
 }
 
 footer {
@@ -641,6 +654,7 @@ footer {
   }
 
   button {
+    border: 2px solid hsla(0, 0%, 100%, 0.275) inset; 
     background-color: var(--light-red);
     color: var(--dark-bg)
   }
@@ -652,7 +666,7 @@ footer {
 }
 
 /* Tablets */
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   main {
     margin-bottom: 5rem;
     overflow-y: auto;
@@ -713,14 +727,6 @@ footer {
     font-size: 1.2rem;
     font-family: var(--font-family);
   }
-
-  #modal-content {
-    border-radius: 0;
-  }
-
-  #close-modal {
-    width: 10vh;
-  }
   
   .overlay {
     background: rgba(0, 0, 0, 0.4);;
@@ -777,12 +783,65 @@ footer {
     margin: 0 0 auto 0;
     width: 100%;
     overflow-y: auto;
+    border-radius: 0;
   }
 
   .modal-header {
     display: flex;
+    text-align: center;
+  }
+
+  .technical-datasheet {
+    text-align: center;
+    width: 100%;
+  }
+
+  #modal-poster {
+    width: 100%;
+    text-align: center;
+  }
+
+  #modal-poster img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .close-modal .desktop {
+    display: none;
+  }
+
+  .modal-header {
+    display: flex; 
     flex-direction: column;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+
+  .technical-datasheet {
+    flex: 2;
+    min-width: 60%;
+  }
+
+  .cross-btn-container {
+    flex: 1;
+    display: block;
+    margin: 0 0 auto auto;
+    align-self: baseline;
+    top: 0px;
+    right: 0px;
+    padding: 0;
+
+  }
+
+  .cross-btn {
+    background-color: var(--dark-red);
+    color: var(--dark-mint-ref);
+    display: block;
+    border: 2px solid hsla(0, 0%, 100%, 0.282) inset;
+    border-radius: 0;
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
   }
 
   .technical {
@@ -797,10 +856,6 @@ footer {
     margin: 0;
     width: 100%;
     height: auto;
-  }
-
-  #modal-poster img {
-    width: 100%;
   }
 
 }
@@ -882,7 +937,7 @@ footer {
   
 }
 
-@media screen and (max-width: 416) {
+@media only screen and (max-width: 416) {
   .section-title, .movie-title, .modal-title, h2, h3 {
     font-size: 1.4rem;
     text-align: center;

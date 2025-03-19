@@ -192,12 +192,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     let bestMoviesRawData = await fetchTheAmountOfPagesRequired(bestImdbMoviesUrl, 2);
     let bestMoviesIds = extractMoviesIdsFromData(bestMoviesRawData);
     let bestMoviesSelection = await getMoviesFromIDs(bestMoviesIds);
-    console.log(`Titres des films: \n\t1.\t${bestMoviesSelection[0].title}\n\t2.\t${bestMoviesSelection[1].title}`)
     let sixBestMovies = bestMoviesSelection.slice(1, 7);
-    console.log(`Titres des films: \n\t3.\t${sixBestMovies[2].title}\n\t4.\t${sixBestMovies[3].title}`)
     setCategoryMovies(sixBestMovies, "other-best-movies");
   } catch (error) {
-    console.error("\t~~~~|ERREUR|~~~~\nErreur lors du chargement des autres meilleurs films IMDB\n\t", error)
+    console.error("Erreur lors du chargement des autres meilleurs films IMDB\n\t", error)
   }
 
   // Best French Movies from the 90s
@@ -259,19 +257,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 });
-
-/**
- * Hides the loader overlay after the window has finished loading.
- *
- * Applies a fading effect by setting the opacity to "0" after a delay,
- * and then setting the display to "none" after an additional delay.
- */
-// window.onload = function() {
-//   const loader = document.getElementById("loader-overlay");
-//   setTimeout(() => {
-//     loader.style.opacity = '0';
-//     setTimeout(() => {
-//        loader.style.display = "none";
-//     }, 2000);
-//   }, 3000); 
-// };
