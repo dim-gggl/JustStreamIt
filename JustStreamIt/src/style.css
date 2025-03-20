@@ -1,5 +1,5 @@
   /* Loading fonts from Google Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
     
@@ -16,7 +16,7 @@
     --flashy-mint: #22ffd1;
     --logo-green: #5CABAC;
     --dark-mint-ref: #e3fff8;
-    --font-family: "Roboto Condensed", sans-serif;
+    --font-family: "Oswald", sans-serif;
     --movie-font: "Dancing Script", serif;
     --category-font : "Racing Sans One", serif;
     --fresh-mint-green-svg-filter: 
